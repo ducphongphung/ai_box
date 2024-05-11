@@ -1,0 +1,108 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8eee9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.register-container {
+    background-color: #8bd38b;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-form h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.register-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.upload-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px dashed #ccc;
+}
+
+.drop-area {
+    padding: 10px;
+    border: 2px dashed #43a047;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative;
+}
+
+.drop-area:hover {
+    background-color: #e0f2f1;
+}
+
+.drop-area input[type="file"] {
+    display: none; /* Ẩn input file */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #43a047;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #388e3c;
+}
+
+#gallery {
+    margin-top: 10px;
+}
+
+#gallery img {
+    width: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-form button {
+    background-color: #43a047;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.register-form button:hover {
+    background-color: #388e3c;
+}
