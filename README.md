@@ -10,4 +10,3 @@ AI products developed for household surveillance
 - pip install imutils requests
 - pip install redis
 - pip install Pillow
-- 

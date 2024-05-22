@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="shortcut icon" href="../static/images/logo_aibox.png" type="image/x-icon">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/registerStyle.css" >
+  </head>
+  <body>
+    <div class="all">
+    <div class="card">
+      <div class="card-item">
+        <div class="card-item_companyname">
+          <h1 style="color: white">Ai-Box</h1>
+        </div>
+        <!-- <div class="quest">
+          <p>Vui lòng cung cấp một số thông tin <br>về doanh nghiệp của bạn</p>
+        </div> -->
+        </div>
+        <form action="/register" method="POST" enctype="multipart/form-data">
+          <div class="input-box">
+            <input type="text" name="username" placeholder="Tên tài khoản" required/>
+            <input type="password" name="password" placeholder="Mật khẩu" required/>
+            <input type="password" name="confirm_password" placeholder="Nhập lại mật khẩu" required/>
+            <input type="email" name="email" placeholder="Email" required/>
+            <label for="file-upload" class="custom-file-upload">
+              Choose Files
+            </label>
+            <input id="file-upload" type="file" name="file" multiple/>
+          </div>
+          <button id="buttonSignIn" type="submit"><b>Đăng ký</b></button>
+        </form>
+        <p style="color: white;">Đã có tài khoản? <a href="login">Đăng nhập</a></p>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex;flex-direction: column;align-items: center;height: 100%;">
+  <a class="link" href="https://facenet.vn" target="_blank"
+      style="display: flex; flex-direction: row;align-items: center;">
+      <img style="width: 60px;height: 60px;" src="../static/images/logo_aibox.png" alt=""
+           class="mr-10px">
+      <span class="d-inline-flex">Ai-Box</span>
+  </a>
+  <p style="text-align: center; color: white;">Bảo vệ mái ấm gia đình bạn</p>
+</div>
+  </div>
+  </body>
+</html>
