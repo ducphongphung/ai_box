@@ -1,5 +1,5 @@
 # ai_box
-AI products developed for household surveillance
+Protect Your Family
 
 # setup
 - pip install numpy
