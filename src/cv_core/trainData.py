@@ -2,6 +2,7 @@ import cv2
 import os
 import numpy as np
 from deepface import DeepFace
+from tensorflow.keras.models import load_model
 
 
 # Paths to models and training data
