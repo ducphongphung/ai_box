@@ -8,13 +8,23 @@
 </head>
 <body>
     <div class="main-container">
-        <button class="logout-button" >ĐĂNG XUẤT</button>
         <h2>CAMERA OPTIONS</h2>
         <div class="button-container">
-            <button class="option-button" onclick="window.location.href='add-member'">THÊM THÀNH VIÊN</button>
-            <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN NGƯỜI LẠ</button>
-            <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN KHÓI/CHÁY</button>
-            <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN NGÃ</button>
+            {% if current_user.is_authenticated %}
+                <button class="logout-button" ><a href="/logout">Đăng Xuất</a></button>
+
+                <button class="option-button" onclick="window.location.href='add-member'">THÊM THÀNH VIÊN</button>
+                <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN NGƯỜI LẠ</button>
+                <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN KHÓI/CHÁY</button>
+                <button class="option-button" onclick="window.location.href='model'">PHÁT HIỆN NGÃ</button>
+            {% else %}
+                <button class="logout-button" ><a href="/login">Đăng Nhập</a></button>
+
+                <button class="option-button" onclick="window.location.href='login'">THÊM THÀNH VIÊN</button>
+                <button class="option-button" onclick="window.location.href='login'">PHÁT HIỆN NGƯỜI LẠ</button>
+                <button class="option-button" onclick="window.location.href='login'">PHÁT HIỆN KHÓI/CHÁY</button>
+                <button class="option-button" onclick="window.location.href='login'">PHÁT HIỆN NGÃ</button>
+            {% endif %}
         </div>
     </div>
 </body>

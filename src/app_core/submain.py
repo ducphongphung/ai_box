@@ -17,11 +17,6 @@ face = 0
 switch = 1
 rec = 0
 
-# make shots directory to save pics
-try:
-    os.mkdir('./shots')
-except OSError as error:
-    pass
 
 # Load pretrained face detection model
 model = DemoModel()
@@ -31,9 +26,14 @@ app = Flask(__name__)
 
 ############################################################################################
 # Config image upload
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'src/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Config image capture
+CAPTURE_FOLDER = 'src/shots'
+os.makedirs(CAPTURE_FOLDER, exist_ok=True)
+app.config['CAPTURE_FOLDER'] = CAPTURE_FOLDER
 
 ############################################################################################
 # Connect DB
@@ -113,7 +113,7 @@ def logout():
     logout_user()
     return redirect(url_for("login"))
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture("rtsp://admin:Facenet2022@192.168.1.3:554/Streaming/Channels/1")
 
 
 
@@ -150,9 +150,9 @@ def record(out):
 
 def demo(frame):
     global model
+    t = time.time()
     results = model.predict(frame)
-    for result in results:
-        print(result.boxes)
+    print(time.time() - t)
     return frame
 
 
@@ -166,7 +166,7 @@ def gen_frames():  # generate frame by frame from camera
             if capture:
                 capture = 0
                 now = datetime.datetime.now()
-                p = os.path.sep.join(['shots', "shot_{}.png".format(str(now).replace(":", ''))])
+                p = os.path.sep.join(['src/shots', "shot_{}.png".format(str(now).replace(":", ''))])
                 cv2.imwrite(p, frame)
             if rec:
                 rec_frame = frame
@@ -185,7 +185,35 @@ def gen_frames():  # generate frame by frame from camera
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('admin.html')
+
+@app.route('/add-member', methods=["GET", "POST"])
+def add_member():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        email = request.form['email']
+
+        if password != confirm_password:
+            return "Mật khẩu không khớp!"
+        user = Users(username=username,
+                     password=password,
+                     email = email)
+        db.session.add(user)
+        db.session.commit()
+
+        # Xử lý tệp tải lên
+        if 'file' in request.files:
+            files = request.files.getlist('file')
+            for file in files:
+                if file:
+                    filename = file.filename
+                    filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    print(filepath)
+                    file.save(filepath)
+        return redirect(url_for("login"))
+    return render_template('add-member.html')
 
 
 @app.route('/main')
