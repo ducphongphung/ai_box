@@ -1,8 +1,11 @@
 import datetime
 import os
+import smtplib
 import time
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from threading import Thread
-import numpy as np
+from decouple import config
 import cv2
 from flask import Flask, render_template, Response, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
@@ -113,8 +116,52 @@ def logout():
     logout_user()
     return redirect(url_for("login"))
 
-camera = cv2.VideoCapture("rtsp://admin:Facenet2022@192.168.1.3:554/Streaming/Channels/1")
+# camera = cv2.VideoCapture("rtsp://admin:Facenet2022@192.168.1.3:554/Streaming/Channels/1")
+camera = cv2.VideoCapture(0)
 
+
+def draw_bounding_boxes(frame, results):
+    for result in results:
+        # Extract the bounding box coordinates
+        boxes = result.boxes
+        for box in boxes:
+            # The box tensor contains [x_min, y_min, x_max, y_max, confidence, class]
+            x_min, y_min, x_max, y_max = int(box[0]), int(box[1]), int(box[2]), int(box[3])
+            confidence = box[4]
+            label = f"{int(box[5])} {confidence:.2f}"
+
+            # Draw the rectangle
+            frame = cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
+
+            # Draw the label
+            frame = cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    return frame
+
+def send_email():
+    print("Attempting to send email...")  # Add a print statement to indicate the function is called
+    # Email configuration
+    sender_email = "ducphongBKEU@gmail.com"  # Sender's email address
+    receiver_email = "ducphongtester02@gmail.com"  # Receiver's email address
+    password = config('EMAIL_PASSWORD')  # Sender's email password
+
+    # Email content
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = "Fall Detected!"
+
+    body = "A fall has been detected. Please check the fall detection system for details."
+    message.attach(MIMEText(body, "plain"))
+
+    try:
+        # Send email
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:  # SMTP server configuration
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message.as_string())
+        print("Email sent successfully!")  # Add a print statement to indicate successful email sending
+    except Exception as e:
+        print("Error sending email:", e)  # Add a print statement to print out the error message
 
 
 # @app.route('/register', methods=['GET', 'POST'])
@@ -150,10 +197,8 @@ def record(out):
 
 def demo(frame):
     global model
-    t = time.time()
     results = model.predict(frame)
-    print(time.time() - t)
-    return frame
+    return frame, results
 
 
 def gen_frames():  # generate frame by frame from camera
@@ -162,7 +207,10 @@ def gen_frames():  # generate frame by frame from camera
         success, frame = camera.read()
         if success:
             if face:
-                frame = demo(frame)
+                frame, results = demo(frame)
+                for result in results:
+                    print(result.boxes)
+                frame = draw_bounding_boxes(frame, results)
             if capture:
                 capture = 0
                 now = datetime.datetime.now()
