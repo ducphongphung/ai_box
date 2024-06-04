@@ -139,9 +139,9 @@ def change_password():
         confirm_password = request.form.get("confirm_password")
 
         if not check_password_hash(current_user.password, current_password):
-            error = "Current password is incorrect."
+            flash("Current password is incorrect.", "error")
         elif new_password != confirm_password:
-            error = "New passwords do not match."
+            flash("New passwords do not match.", "error")
         else:
             current_user.password = generate_password_hash(new_password)
             db.session.commit()

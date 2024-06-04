@@ -123,3 +123,306 @@ Traceback (most recent call last):
     version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
 FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
 2024-05-29 06:55:28,596 ERROR conf file must be in /sc/sources
+2024-05-29 06:57:23,560 ERROR conf file must be in /sc/sources
+2024-05-29 07:08:30,006 ERROR conf file must be in /sc/sources
+2024-05-29 07:09:59,695 ERROR conf file must be in /sc/sources
+2024-05-29 07:10:00,885 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-29 07:13:41,771 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:37:39,509 ERROR conf file must be in /sc/sources
+2024-05-30 15:38:45,435 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:38:58,314 ERROR conf file must be in /sc/sources
+2024-05-30 15:38:58,314 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:39:06,936 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:40:07,317 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:42:16,588 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:42:40,215 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:43:08,375 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:43:30,459 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:47:14,450 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:47:23,776 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:47:42,508 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 15:48:19,510 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 17:31:43,724 ERROR conf file must be in /sc/sources
+2024-05-30 17:33:56,665 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-05-30 17:34:05,131 ERROR conf file must be in /sc/sources
+2024-05-30 17:34:05,132 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:19:52,993 ERROR conf file must be in /sc/sources
+2024-06-03 10:19:55,530 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:20:18,849 ERROR conf file must be in /sc/sources
+2024-06-03 10:20:37,686 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:20:46,956 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:21:30,232 ERROR conf file must be in /sc/sources
+2024-06-03 10:21:30,232 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:25:55,777 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 10:30:33,532 ERROR conf file must be in /sc/sources
+2024-06-03 10:32:01,050 ERROR conf file must be in /sc/sources
+2024-06-03 10:32:01,051 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 15:44:15,306 ERROR conf file must be in /sc/sources
+2024-06-03 15:44:33,747 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 15:44:38,969 ERROR conf file must be in /sc/sources
+2024-06-03 15:44:38,970 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 15:45:44,366 ERROR conf file must be in /sc/sources
+2024-06-03 15:45:44,366 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 16:27:26,354 ERROR conf file must be in /sc/sources
+2024-06-03 16:27:26,355 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 17:47:58,725 ERROR conf file must be in /sc/sources
+2024-06-03 17:48:45,209 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 17:48:52,210 ERROR conf file must be in /sc/sources
+2024-06-03 17:48:52,210 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 17:49:32,210 ERROR conf file must be in /sc/sources
+2024-06-03 17:49:32,211 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-03 17:50:07,544 ERROR conf file must be in /sc/sources
+2024-06-03 17:50:07,545 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-04 17:20:04,846 ERROR conf file must be in /sc/sources
+2024-06-04 17:20:18,885 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-04 17:20:27,363 ERROR conf file must be in /sc/sources
+2024-06-04 17:20:27,363 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 500, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 203, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/sc/8080.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'

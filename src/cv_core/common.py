@@ -382,7 +382,7 @@ def check_cloud_license(license_server='localhost', only_virtual=True):
                         license_server_url, verify=False,
                         params={
                             'serial': serial, 'ip': ut.get_public_ip(),
-                            'ip_lan': ut.get_lan_ip(), 'timestamp': LICENSE.timestamp,
+                            # 'ip_lan': ut.get_lan_ip(), 'timestamp': LICENSE.timestamp,
                             'maxi': LICENSE.maxi})
                     if res.text == expected_pass:
                         logger.info('ok')
