@@ -1,10 +1,10 @@
 
-from flask import Flask, render_template, Response, request, redirect, url_for, flash
+from flask import Flask, render_template, Response, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
-from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import sys
+
+# Change the path to folder ai_box
 sys.path.append('C:/Users\ducph\PycharmProjects/ai_box')
 
 from src.app_core.apps import VideoMonitorApp
@@ -18,14 +18,13 @@ import json
 import time
 import requests
 
+
 logger = dbg.get_logger("tt_zone")
 
 template_dir = os.path.abspath('templates')
 static_dir = os.path.abspath('static')
 
 
-# from model import DemoModel
-from src.cv_core.fall.FallDetector import FallDetector
 
 global capture, rec_frame, grey, switch, neg, face, rec, out, previous_time
 capture = 0
@@ -33,8 +32,6 @@ face = 0
 switch = 1
 rec = 0
 
-class RdSwitchStatus:
-    FALLEN = 1
 
 # instantiate flask app
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
@@ -71,12 +68,6 @@ class Users(UserMixin, db.Model):
     username = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
-
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
 
 
 db.init_app(app)
@@ -119,36 +110,15 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         user = Users.query.filter_by(
             username=request.form.get("username")).first()
         if user.password == request.form.get("password"):
             login_user(user)
-            return redirect(url_for("main_page"))
+            return redirect(url_for("live"))
     return render_template("login.html")
-
-@app.route("/changepassword", methods=["GET", "POST"])
-@login_required
-def change_password():
-    error = None
-    if request.method == "POST":
-        current_password = request.form.get("current_password")
-        new_password = request.form.get("new_password")
-        confirm_password = request.form.get("confirm_password")
-
-        if not check_password_hash(current_user.password, current_password):
-            flash("Current password is incorrect.", "error")
-        elif new_password != confirm_password:
-            flash("New passwords do not match.", "error")
-        else:
-            current_user.password = generate_password_hash(new_password)
-            db.session.commit()
-            flash("Your password has been updated.", "success")
-            return redirect(url_for("main_page"))
-
-    return render_template("changpassword.html", error=error)
 
 
 @app.route("/logout")
@@ -204,30 +174,6 @@ def send_email():
         print("Error sending email:", e)  # Add a print statement to print out the error message
 
 
-# @app.route('/register', methods=['GET', 'POST'])
-# def dang_ky():
-#     if request.method == 'POST':
-#         username = request.form['username']
-#         password = request.form['password']
-#         confirm_password = request.form['confirm_password']
-#         email = request.form['email']
-#
-#         if password != confirm_password:
-#             return "Mật khẩu không khớp!"
-#         # Xử lý tệp tải lên
-#         if 'file' in request.files:
-#             files = request.files.getlist('file')
-#             for file in files:
-#                 if file:
-#                     filename = file.filename
-#                     filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-#                     print(filepath)
-#                     file.save(filepath)
-#
-#         # Ở đây bạn có thể thêm mã để lưu thông tin người dùng vào cơ sở dữ liệu
-#
-#         return redirect(url_for('main_page'))
-#     return render_template('register.html')
 def record(out):
     global rec_frame
     while rec:
@@ -271,9 +217,6 @@ def gen_frames():  # generate frame by frame from camera
         else:
             pass
 
-@app.route('/')
-def index():
-    return render_template('admin.html')
 
 @app.route('/add-member', methods=["GET", "POST"])
 def add_member():
@@ -308,15 +251,6 @@ def add_member():
 def main_page():
     return render_template('admin.html')
 
-#
-# @app.route('/register')
-# def dang_ky():
-#     return render_template('register.html')
-
-
-# @app.route('/login')
-# def dang_nhap():
-#     return render_template('login.html')
 
 
 @app.route('/model')

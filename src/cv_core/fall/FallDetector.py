@@ -1,3 +1,5 @@
+import sys
+
 from ultralytics import YOLO
 import cv2
 from src.utils.types_ex import *
@@ -13,8 +15,8 @@ class FallDetector(object):
 
     def _load_model(self):
         # device = "cuda" if torch.cuda.is_available() else "cpu"
-        # print(device)
-        model = YOLO("C:/Users\ducph\PycharmProjects/aibox\src\cv_core/fall\model8s_50.pt")
+        model_path = os.path.abspath('models/model8s_50.pt')
+        model = YOLO( model_path)
         return model
 
     def _detect(self, bgr):
@@ -54,32 +56,4 @@ class FallDetector(object):
 if __name__ == "__main__":
     fall_detector = FallDetector()
 
-    video = cv2.VideoCapture(0)
-    # video.open("rtsp://admin:Facenet2022@192.168.1.3:554/cam/realmonitor?channel=1&subtype=1")
-    if not video.isOpened():
-        raise IOError("Cannot open webcam")
-    fps = video.get(cv2.CAP_PROP_FPS)
-    print('frames per second =', fps)
-    print("Start detecting")
-    # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter('output2.avi', fourcc, 20.0, (1200, 680))
 
-    while True:
-        ret, frame = video.read()
-        if ret:
-            fall_dets = fall_detector.get_fall(frame)
-            for i, fall_det in enumerate(fall_dets.fall_dets):
-                print(f"Detection {i + 1}:")
-                print(f"  Box: {fall_det.bb}")
-                print(f"  Confidence: {fall_det.confidence}")
-                print(f"  Is Fallen: {'Yes' if fall_det.is_fallen == 1 else 'No'}")
-
-            # out.write(fall_detector.get_fall(frame))
-            # cv2.imshow("Output", fall_detector.get_fall(frame))
-            # if cv2.waitKey(1) & 0xFF == ord("q"):
-            #     print("Exit")
-            #     break
-        else:
-            print("Fail to detect frame")
-            break

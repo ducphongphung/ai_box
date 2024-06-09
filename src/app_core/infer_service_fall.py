@@ -6,6 +6,7 @@ import os
 from flask import Flask
 
 import sys
+# Change the path to folder ai_box
 sys.path.append('C:/Users\ducph\PycharmProjects/ai_box')
 
 import src.utils.common as ut

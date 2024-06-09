@@ -22,6 +22,7 @@ import multiprocessing
 import re
 import six
 import requests
+# import netifaces
 from shapely.geometry import LineString
 from collections import Counter
 from io import StringIO
@@ -913,6 +914,16 @@ def get_public_ip(timeout=(5,5)):
     except:  # hide the exception
         return None
 
+
+# def get_lan_ip():
+#     rs = []
+#     for iface in netifaces.interfaces():
+#         if not iface.startswith('lo'):
+#             try:
+#                 rs.append(netifaces.ifaddresses(iface)[netifaces.AF_INET][0]['addr'])
+#             except:
+#                 pass
+#     return rs
 
 
 def process_running(pid):

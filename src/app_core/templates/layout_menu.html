@@ -4,62 +4,18 @@
 
 {% block main_header %}
     <header class="main-header">
-    <!-- Logo -->
-    <a href="/index" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>FTR</b></span> <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>AI Hub</b></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas"
-           role="button"> <span class="sr-only">Toggle navigation</span>
+        <!-- Logo -->
+        <a href="/index" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class=""><b>AI HUB</b></span>
         </a>
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
-                        src="{{ url_for('static', filename=avantar_path) }}" class="user-image"
-                        alt="User Image">
-                    {% if current_user.is_authenticated %}
-                        {% if FBuser == "" %}
-                            <span class="hidden-xs">{{ current_user.id }}</span>
-                        {% else %}
-                            <span class="hidden-xs">{{ FBuser }}</span>
-                        {% endif %}
-                    {% endif %}
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header"><img
-                                src="{{ url_for('static', filename=avantar_path) }}" class="img-circle"
-                                alt="User Image">
-                            <p>
-                                {% if current_user.is_authenticated %}
-                                    {% if FBuser == "" %}
-                                        <p>Hi {{ current_user.username }}!</p>
-                                    {% else %}
-                                        <p>Hi {{ FBuser }}!</p>
-                                    {% endif %}
-                                {% endif %}
-                            </p>
-                        </li>
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="changepassword" class="btn btn-default btn-flat">Đổi mật khẩu</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="javascript:logout()" class="btn btn-default btn-flat">Thoát</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    <!-- Header Navbar: style can be found in header.less -->
+        <div class="action-menu">
+            <div class="item" onclick="window.location.href='add-member'">Thêm thành viên</div>
+            <div class="item" onclick="window.location.href='model'">Phát hiện người lạ</div>
+            <div class="item" onclick="window.location.href='model'">Phát hiện khói cháy</div>
+            <div class="item" onclick="window.location.href='live'">Phát hiện người ngã</div>
         </div>
-    </nav>
-</header>
+    </header>
 {% endblock %}
 
 
@@ -95,6 +51,12 @@
 
 {% block content %}
     <div class="content-wrapper">
+        <div class="top-bar">
+            <div class="action">
+                <a class="change-password" href="/logout">Đổi mật khẩu</a>
+                <a class="logout" href="/logout">Đăng Xuất</a>
+            </div>
+        </div>
         {% block content_wrapper %}{% endblock %}
     </div>
 {% endblock %}

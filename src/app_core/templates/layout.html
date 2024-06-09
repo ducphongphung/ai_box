@@ -13,7 +13,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/ionicons.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/AdminLTE.min.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/AdminLTE.min.css') }}">-->
     <!-- AdminLTE Skins. Choose a skin from the css/skins
            folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/skins/_all-skins.min.css') }}">
@@ -39,18 +39,18 @@
 </head>
 
 
-<body class="hold-transition skin-blue sidebar-mini {% if not config.SHOW_SIDEBAR %} sidebar-collapse {% endif %}">
-<div class="wrapper">
+<body class="hold-transition">
+<div class="pwrapper">
     {% block main_header %}{% endblock %}
 
     <!-- Left side panel, contains the logo and sidebar -->
-    {% block main_sidebar %}{% endblock %}
+<!--    {% block main_sidebar %}{% endblock %}-->
 
     <!-- Actual page content -->
     {% block content %}{% endblock %}
 
     <!-- Copyright footer -->
-    {% block main_footer %}{% endblock %}
+<!--    {% block main_footer %}{% endblock %}-->
 </div>
 
 <!-- jQuery UI 1.11.4 -->
