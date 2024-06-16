@@ -158,8 +158,7 @@ def send_email():
     sender_email = email
     receiver_email = "ducphongBKEU@gmail.com"
 
-    message = """From: aiboxmail0@gmail.com
-    To: ducphongBKEU@gmail.com
+    message = """
     Subject: Fall Email
     Fallen!!!!!!
     """
@@ -167,6 +166,7 @@ def send_email():
     # Connect to the SMTP server and send the email
     try:
         with smtplib.SMTP_SSL(smtp_server, port) as server:
+            # key application 3th
             server.login(email, "agfb qgra wvrb xpwo")
             server.sendmail(sender_email, receiver_email, message)
         print("Email sent successfully!")  # Add a print statement to indicate successful email sending
@@ -368,6 +368,45 @@ class Backend(VideoMonitorApp):
         except Exception as ex:
             logger.exception(ex)
 
+    def send_fall_event_not_in_zone(self, detections, image):
+        try:
+            new_zones_cache = {}
+            for zone in self.zones:
+                zone_id = zone['zone_id']
+                if zone_id in self.zones_cache:
+                    new_zones_cache[zone_id] = self.zones_cache[zone_id]
+                else:
+                    new_zones_cache[zone_id] = zone.copy()
+                    new_zones_cache[zone_id]['det_seq'] = deque(maxlen=global_cfg.HUMAN_DET_TIME_WINDOW_SIZE)
+
+            self.zones_cache = new_zones_cache
+            # build the detection sequence for each zone, the seq contains detections from 9 past frames
+            for zone_id, zone in self.zones_cache.items():
+                if zone['zone_attributes']['164'] == 0:
+                    zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
+                    zone_has_motion = False
+                    # center of body inside zone_poly_expanded -> zone has detection
+                    for bb in detections:
+                        # pts = [[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]]]  # bb to 4 points
+                        pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+                               [bb['bb'][0], bb['bb'][3]]]  # bb thành 4 điểm
+                        if zone_poly.intersects(geometry.Polygon(pts)):
+                            zone_has_motion = True
+
+                    try:
+                        # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
+                        if not zone_has_motion:
+                            self.send_fall_passing_events(detections, frame= image)
+
+                        else:  # keep current switch status if detection unstable: <= 33% detection
+                            logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
+                    except:
+                        self.hc_connected = False
+                else:
+                    self.send_fall_passing_events(detections, frame= image)
+        except Exception as ex:
+            logger.exception(ex)
+
     def process_frame(self, frame, t0, regs, freeze_state):
         show = frame.copy()
 
@@ -376,7 +415,7 @@ class Backend(VideoMonitorApp):
         if len(detections):
             for d in detections:
                 bb = d['bb']
-                dr.draw_box(show, bb, line1="FALLEN" if d['is_fallen'] == 1 else None,
+                dr.draw_box(show, bb, line1="FALLEN"  if d['is_fallen'] == 1 else None,
                             color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
                 if d['is_fallen'] == 1:
                     self.tracks.append(1)
@@ -385,13 +424,12 @@ class Backend(VideoMonitorApp):
         # Default passing to 60s
         if self.previous_time is None:
             self.previous_time = current_time
-        elif self.previous_time is not None and current_time - self.previous_time > 10 and sum(self.tracks) >= 60:
+        elif self.previous_time is not None and current_time - self.previous_time > 7 and sum(self.tracks) >= 30:
             self.previous_time = current_time
-            if sum(self.tracks) >= self.opts.n_frame:
-                # print(current_time - self.previous_time, sum(self.tracks))
-                self.send_fall_passing_events(detections=detections, frame=show)
+            self.send_fall_event_not_in_zone(detections=detections, image = show)
             self.tracks.clear()
         return show
+
 
     @property
     def zones(self):
@@ -413,7 +451,7 @@ class Backend(VideoMonitorApp):
         self.conf['count_margin'] = 0
         self.conf['stopline_y'] = 0
         self.conf = read_json_conf()
-        # self.set_zone_cache()
+        self.set_zone_cache()
 
     def add_cli_opts(self):
         super(Backend, self).add_cli_opts()

@@ -1,3 +1,4 @@
+import logging
 import sys
 sys.path.append('C:/Users\ducph\PycharmProjects/aibox')
 
@@ -12,6 +13,8 @@ import cv2
 import json
 import time
 import requests
+from collections import deque
+from shapely import geometry
 
 logger = dbg.get_logger("tt_zone")
 
@@ -95,16 +98,52 @@ class Backend(VideoMonitorApp):
             self.hc_connected = False
             logger.exception(ex)
 
+    def send_fall_event_not_in_zone(self, detections, image):
+        try:
+            new_zones_cache = {}
+            for zone in self.zones:
+                zone_id = zone['zone_id']
+                if zone_id in self.zones_cache:
+                    new_zones_cache[zone_id] = self.zones_cache[zone_id]
+                else:
+                    new_zones_cache[zone_id] = zone.copy()
+                    new_zones_cache[zone_id]['det_seq'] = deque(maxlen=global_cfg.HUMAN_DET_TIME_WINDOW_SIZE)
+
+            self.zones_cache = new_zones_cache
+            # build the detection sequence for each zone, the seq contains detections from 9 past frames
+            for zone_id, zone in self.zones_cache.items():
+                if zone['zone_attributes']['164'] == 0:
+                    zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
+                    zone_has_motion = False
+                    # center of body inside zone_poly_expanded -> zone has detection
+                    for bb in detections:
+                        pts = [[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]]]  # bb to 4 points
+                        if zone_poly.intersects(geometry.Polygon(pts)):
+                            zone_has_motion = True
+
+                    try:
+                        # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
+                        if not zone_has_motion:
+                            self.send_fall_passing_events(detections, frame= image)
+
+                        else:  # keep current switch status if detection unstable: <= 33% detection
+                            logger.warn(f"zone: {zone}: skip sending zone event to HC as detection is not stable")
+                    except:
+                        self.hc_connected = False
+                else:
+                    self.send_fall_passing_events(detections, frame= image)
+        except Exception as ex:
+            logger.exception(ex)
+
     def process_frame(self, frame, t0, regs, freeze_state):
         show = frame.copy()
 
         detections = self.get_detections(frame)
-        # bbs = []
 
         if len(detections):
             for d in detections:
                 bb = d['bb']
-                dr.draw_box(show, bb, line1="FALLEN" if d['is_fallen'] == 1 else None,
+                dr.draw_box(show, bb, line1="FALLEN"  if d['is_fallen'] == 1 else None,
                             color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
                 if d['is_fallen'] == 1:
                     self.tracks.append(1)
@@ -113,35 +152,32 @@ class Backend(VideoMonitorApp):
         # Default passing to 60s
         if self.previous_time is None:
             self.previous_time = current_time
-        elif self.previous_time is not None and current_time - self.previous_time > 7:
+        elif self.previous_time is not None and current_time - self.previous_time > 7 and sum(self.tracks) >= 30:
             self.previous_time = current_time
-            if sum(self.tracks) >= self.opts.n_frame:
-                # print(current_time - self.previous_time, sum(self.tracks))
-                self.send_fall_passing_events(detections=detections, frame=show)
+            self.send_fall_event_not_in_zone(detections=detections, image = show)
             self.tracks.clear()
         return show
 
     @property
     def zones(self):
-        # print(self.cam_id)
         rs = self.conf.get(self.cam_id, {}).get('zone', [])
         if not isinstance(rs, list):
             return []
         else:
             return rs
 
-    def draw_static_info(self, disp):
-        super(Backend, self).draw_static_info(disp)
-        for zone in self.zones_cache.values():
-            color = dr.RED if zone.get('light') else dr.WHITE
-            dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
-
     def on_conf_update(self, frame):
         super(Backend, self).on_conf_update(frame)
         self.conf['count_margin'] = 0
         self.conf['stopline_y'] = 0
         self.conf = read_json_conf()
-        # self.set_zone_cache()
+        self.set_zone_cache()
+
+    def draw_static_info(self, disp):
+        super(Backend, self).draw_static_info(disp)
+        for zone in self.zones_cache.values():
+            color = dr.RED if zone.get('light') else dr.GREEN
+            dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
 
     def add_cli_opts(self):
         super(Backend, self).add_cli_opts()
@@ -205,44 +241,6 @@ def add_cam_v2():
         return return_json("Lỗi.", ex, ret_code=1)
 
 
-# @app.route('/camera-zone/<camera_ip>', methods=['PUT'])
-# def update_cam(camera_ip):
-#     camera_jsons = rdhc_api.read_json_conf()
-#     if camera_ip not in camera_jsons:
-#         return return_json(f"Lỗi. Camera chưa được thêm vào nhà: ID : {camera_ip}", ret_code=2)
-#     infos = request.json
-#     zones = camera_jsons.setdefault(str(camera_ip), {}).setdefault('zone', [])
-#
-#     try:
-#         err_msg = backend.update_zone(rdhc_api.read_json_conf())
-#         if not err_msg:
-#             event_ids = []
-#             for zone_info in infos:
-#                 zone_name = zone_info.get('zone_name')
-#                 zone_attributes = zone_info.get('zone_attributes')
-#                 if zone_name is not None and zone_name != "":
-#                     if not any(zone.get('zone_name') == zone_name for zone in zones):
-#                         zone_id = rdhc_api.gen_id_uuid_device(zone_name)
-#                         event_id = rdhc_api.get_unique_number(zone_id) + 2000
-#                         zone_info['zone_id'] = zone_id
-#                         zone_info['event_id'] = event_id
-#                         if zone_attributes:
-#                             zone_info['zone_attributes'] = zone_attributes
-#                         event_ids.append(event_id)
-#                         zones.append(zone_info.copy())
-#                     else:
-#                         return return_json(f"Lỗi. Zone có tên {zone_name} đã tồn tại.", ret_code=4)
-#                 else:
-#                     return return_json("Lỗi. Tên zone không được để trống.", ret_code=5)
-#             write_cam_info_json(info=camera_jsons)
-#             return return_json("Thành công", ret_code=0, data={'event_id': event_id, 'zone_id': zone_id})
-#         else:
-#             return return_json(f"Lỗi. Không kích hoạt được camera: {err_msg}", ret_code=3)
-#     except Exception as ex:
-#         logger.exception(ex)
-#         return return_json("Lỗi.", ex, ret_code=1)
-
-
 @app.route('/camera-zone/<camera_ip>/<zone_id>', methods=['DELETE'])
 def delete_zone_by_id(camera_ip, zone_id):
     try:
@@ -284,6 +282,7 @@ def get_camera_zone(camera_id):
 def get_camera_info():
     try:
         camera_info = list(read_json_conf().values())
+
         return return_json("Thành công", data={"camera_info": camera_info}, ret_code=0)
     except Exception as ex:
         return return_json("Lỗi.", ex, ret_code=1)
@@ -326,11 +325,6 @@ def conf_camera():
     except Exception as ex:
         return return_json("Lỗi. ", ex, ret_code=1)
 
-
-from collections import deque
-from shapely import geometry
-
-
 def expand_zone(coords, factor=0.3):
     xs = [i[0] for i in coords]
     ys = [i[1] for i in coords]
@@ -343,23 +337,15 @@ def expand_zone(coords, factor=0.3):
     zone_with_border = zone.buffer(distance)
     return zone, zone_with_border
 
-
-
-
-
 if __name__ == '__main__':
-    # if USE_TPU:
-    #     scan_hc_thread = threading.Thread(target=rdhc.run_scan_hc_thread)
-    #     scan_hc_thread.start()
 
     AppsConfig.configure(app)
 
     backend = Backend()
-    # backend.cam_id = "7a49f552-e974-4e8f-8dc4-b5e37e47410b"
 
     backend.resume()
 
     app.config['APP_TITLE_SHORT'] = 'FTR'
 
     # Run your Flask application
-    app.run(host='0.0.0.0', port=backend.port, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=8081, debug=False, threaded=True)

@@ -3,7 +3,7 @@ import logging
 from urllib.parse import urlparse
 
 
-def read_json_conf(file='/sc/sources/camera_zone.json'):
+def read_json_conf(file=r'C:\Users\ducph\PycharmProjects\ai_box\setup\sc\source\camera_zone.json'):
     try:
         with open(file, "r") as json_file:
             json_data = json.load(json_file)
@@ -13,7 +13,7 @@ def read_json_conf(file='/sc/sources/camera_zone.json'):
         return {}
 
 
-def write_cam_info_json(file='/sc/sources/camera_zone.json', info=None):
+def write_cam_info_json(file=r'C:\Users\ducph\PycharmProjects\ai_box\setup\sc\source\camera_zone.json', info=None):
     try:
         if info is None:
             info = {}
