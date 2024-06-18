@@ -199,7 +199,8 @@ class AppBase(object):
             self.hc_next_retry = MAX_INT
 
     def _save_states(self):
-        file = '/sc/{}.json'.format(self.port)
+        # file = '/sc/{}.json'.format(self.port)
+        file = '/sc/8081.json'
         with open(file, 'w') as f:
             json.dump({
                 'input_url': self.input_url,

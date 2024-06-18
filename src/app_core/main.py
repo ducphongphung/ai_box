@@ -6,11 +6,11 @@ import sys
 
 # Change the path to folder ai_box
 sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
-
 from src.app_core.apps import VideoMonitorApp
 from src.app_core.controller_utils import *
 from src.app_core.conf import *
 from src.utils.common import *
+from src.cv_core.family.FamilyDetector import FamilyDetector
 
 import os
 import cv2
@@ -246,7 +246,10 @@ def add_member():
                     filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                     print(filepath)
                     file.save(filepath)
+            model = FamilyDetector()
+            model.train_data()
         return redirect(url_for("login"))
+
     return render_template('add-member.html')
 
 
@@ -337,6 +340,7 @@ class Backend(VideoMonitorApp):
         except requests.exceptions.ConnectionError:
             logger.error("Cannot connect to inference service")
         if reg:
+            print(reg)
             detections = reg['detections']
 
         return detections
@@ -377,13 +381,22 @@ class Backend(VideoMonitorApp):
 
         detections = self.get_detections(frame)
 
+        print(detections)
+
         if len(detections):
             for d in detections:
-                bb = d['bb']
-                dr.draw_box(show, bb, line1="FALLEN" if d['is_fallen'] == 1 else None,
-                            color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
-                if d['is_fallen'] == 1:
-                    self.tracks.append(1)
+                if len(d['bbox_human']):
+                    x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
+                    cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
+                    cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
+                    if len(d['bbox_face']):
+                        x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
+                        cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                        cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                    else:
+                        self.tracks.append(1)
+                    if d['stranger'] == 0:
+                        self.tracks.append(1)
 
         current_time = time.time()
         # Default passing to 60s
@@ -599,5 +612,5 @@ if __name__ == '__main__':
     app.config['APP_TITLE_SHORT'] = 'FTR'
 
     # Run your Flask application
-    app.run(host='0.0.0.0', port=backend.port, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=8081, debug=False, threaded=True)
 

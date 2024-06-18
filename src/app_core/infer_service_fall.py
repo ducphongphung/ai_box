@@ -12,6 +12,7 @@ sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
 import src.utils.common as ut
 from src.app_core.controller_utils import get_params, return_json
 from src.cv_core.fall.FallDetector import FallDetector
+from src.cv_core.family.FamilyDetector import FamilyDetector
 from src.app_cfg import AppsConfig
 
 template_dir = os.path.abspath('templates')
@@ -49,7 +50,7 @@ def api_detect():
             rs = g_fdet.get_fall(bgr).records  # TODO: Confirm to return an objDets
             # return return_json('ok', data={"detections": rs})  # TODO: remove this line if return an objDets
         if det_type == 'family':
-            rs = g_familydet.get_family(bgr).records
+            rs = g_familydet.get_stranger(bgr).records
         return return_json('ok', data={"detections": [r.to_json() for r in rs]})
     except Exception as ex:
         return return_json('', ex)
