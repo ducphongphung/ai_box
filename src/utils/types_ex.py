@@ -348,6 +348,39 @@ class FallDets(ObjDets):
         super().__init__(fallDets)
         self.fall_dets = fallDets
 
+# Lưu các thuộc tính của kết quả cần dùng
+class FamilyDet(ObjDet):
+    def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, is_fallen=0, confidence=1.):
+        super().__init__(
+            bb,
+            crop=crop,
+            norm=norm,
+            tag=tag,
+            landmarks=landmarks,
+            obj_class='human',
+            confidence=confidence,
+        )
+        self.is_fallen = is_fallen
+
+    def to_json(self):
+        final = {}
+        if isinstance(self.tag, dict):
+            final = self.tag
+        if isinstance(self.bb, np.ndarray):
+            final['bb'] = self.bb.astype(int).tolist()
+        else:
+            final['bb'] = [int(e) for e in self.bb]
+        final['obj_class'] = self.obj_class
+        final['is_fallen'] = self.is_fallen
+        final['confidence'] = float(self.confidence)
+        return final
+
+
+class FamilyDets(ObjDets):
+    def __init__(self, familyDets):
+        super().__init__(familyDets)
+        self.family_dets = familyDets
+
 
 class HandDet(ObjDet):
     def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, gesture=0, confidence=1.):

@@ -48,7 +48,8 @@ def api_detect():
         if det_type == 'fall':
             rs = g_fdet.get_fall(bgr).records  # TODO: Confirm to return an objDets
             # return return_json('ok', data={"detections": rs})  # TODO: remove this line if return an objDets
-
+        if det_type == 'family':
+            rs = g_familydet.get_family(bgr).records
         return return_json('ok', data={"detections": [r.to_json() for r in rs]})
     except Exception as ex:
         return return_json('', ex)
@@ -63,6 +64,7 @@ if __name__ == '__main__':
 
     opts, args = parser.parse_args()
     g_fdet = FallDetector()
+    g_familydet = FamilyDetector()
     timestamp_ms = 0
     AppsConfig.configure(app)
     # avoid polluting log file with "200 INFO POST /api/..."
