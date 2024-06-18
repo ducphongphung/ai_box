@@ -5,7 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 import sys
 
 # Change the path to folder ai_box
-sys.path.append('C:/Users\ducph\PycharmProjects/ai_box')
+sys.path.append(r'C:\Users\ducph\PycharmProjects\ai_box')
 
 from src.app_core.apps import VideoMonitorApp
 from src.app_core.controller_utils import *
@@ -26,9 +26,9 @@ static_dir = os.path.abspath('static')
 
 
 
-global capture, rec_frame, grey, switch, neg, face, rec, out, previous_time
+global capture, rec_frame, grey, switch, neg, function, rec, out, previous_time
 capture = 0
-face = 0
+function = 0
 switch = 1
 rec = 0
 

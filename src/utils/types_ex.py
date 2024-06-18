@@ -324,7 +324,7 @@ class FallDet(ObjDet):
             norm=norm,
             tag=tag,
             landmarks=landmarks,
-            obj_class='human',
+            obj_class='family',
             confidence=confidence,
         )
         self.is_fallen = is_fallen
@@ -348,7 +348,71 @@ class FallDets(ObjDets):
         super().__init__(fallDets)
         self.fall_dets = fallDets
 
+class FireDet(ObjDet):
+    def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, is_fire=0, confidence=1.):
+        super().__init__(
+            bb,
+            crop=crop,
+            norm=norm,
+            tag=tag,
+            landmarks=landmarks,
+            obj_class='fire',
+            confidence=confidence,
+        )
+        self.is_fire = is_fire
 
+    def to_json(self):
+        final = {}
+        if isinstance(self.tag, dict):
+            final = self.tag
+        if isinstance(self.bb, np.ndarray):
+            final['bb'] = self.bb.astype(int).tolist()
+        else:
+            final['bb'] = [int(e) for e in self.bb]
+        final['obj_class'] = self.obj_class
+        final['is_fire'] = self.is_fire
+        final['confidence'] = float(self.confidence)
+        return final
+
+class FireDets(ObjDets):
+    def __init__(self, fireDets):
+        super().__init__(fireDets)
+        self.fire_dets = fireDets
+
+# FamilyDet Class : lưu output
+class FamilyDet(ObjDet):
+    def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, is_fallen=0, confidence=1.):
+        super().__init__(
+            bb,
+            crop=crop,
+            norm=norm,
+            tag=tag,
+            landmarks=landmarks,
+            obj_class='family',
+            confidence=confidence,
+        )
+        self.is_fallen = is_fallen
+
+    def to_json(self):
+        final = {}
+        if isinstance(self.tag, dict):
+            final = self.tag
+        if isinstance(self.bb, np.ndarray):
+            final['bb'] = self.bb.astype(int).tolist()
+        else:
+            final['bb'] = [int(e) for e in self.bb]
+        final['obj_class'] = self.obj_class
+        final['is_fallen'] = self.is_fallen
+        final['confidence'] = float(self.confidence)
+        return final
+
+
+class FamilyDets(ObjDets):
+    def __init__(self, fallDets):
+        super().__init__(fallDets)
+        self.fall_dets = fallDets
+
+######################################################################
 class HandDet(ObjDet):
     def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, gesture=0, confidence=1.):
         super().__init__(
