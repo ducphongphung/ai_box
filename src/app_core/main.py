@@ -5,7 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 import sys
 
 # Change the path to folder ai_box
-sys.path.append('C:/Users\ducph\PycharmProjects/ai_box')
+sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
 
 from src.app_core.apps import VideoMonitorApp
 from src.app_core.controller_utils import *
@@ -21,8 +21,8 @@ import requests
 
 logger = dbg.get_logger("tt_zone")
 
-template_dir = os.path.abspath('templates')
-static_dir = os.path.abspath('static')
+template_dir = os.path.abspath('src/app_core/templates')
+static_dir = os.path.abspath('src/app_core/static')
 
 
 
@@ -74,6 +74,9 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
+
+    ###########################################################################################
+#
 
 
 @login_manager.user_loader

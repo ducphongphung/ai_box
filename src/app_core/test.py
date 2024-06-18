@@ -1,24 +1,41 @@
-import smtplib
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin
 
+app = Flask(__name__)
 
-# Set up the SMTP server
-smtp_server = "smtp.gmail.com"
-port = 465
-email = "aiboxmail0@gmail.com"
-# password = "aibox2024"
+# Configure the database
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+app.config["SECRET_KEY"] = "ENTER YOUR SECRET KEY"
 
-sender_email = email
-receiver_email = "ducphongBKEU@gmail.com"
+# Initialize flask-sqlalchemy extension
+db = SQLAlchemy(app)
 
-message = """From: aiboxmail0@gmail.com
-To: ducphongBKEU@gmail.com
-Subject: Fall Email
-FBI Warning
-"""
+# Initialize LoginManager
+login_manager = LoginManager()
+login_manager.init_app(app)
 
-# Connect to the SMTP server and send the email
-with smtplib.SMTP_SSL(smtp_server, port) as server:
-    server.login(email, "agfb qgra wvrb xpwo")
-    server.sendmail(sender_email, receiver_email, message)
+# Define the Users model
+class Users(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(250), unique=True, nullable=False)
+    password = db.Column(db.String(250), nullable=False)
+    email = db.Column(db.String(250), unique=True, nullable=False)
 
-print("Email sent successfully!")
+# Create the database tables
+with app.app_context():
+    db.create_all()
+
+    # Check database connection by performing a simple query
+    try:
+        # Attempt to query the database
+        test_user = Users.query.first()
+        if test_user:
+            print("Database connected successfully. First user:", test_user.username)
+        else:
+            print("Database connected successfully. No users found.")
+    except Exception as e:
+        print("Database connection failed:", str(e))
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -7,7 +7,7 @@ from flask import Flask
 
 import sys
 # Change the path to folder ai_box
-sys.path.append('C:/Users\ducph\PycharmProjects/ai_box')
+sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
 
 import src.utils.common as ut
 from src.app_core.controller_utils import get_params, return_json

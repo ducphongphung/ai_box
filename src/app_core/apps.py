@@ -17,7 +17,7 @@ logger = dbg.get_logger(__name__)
 
 class AppBase(object):
     def __init__(self):
-        self.port = 8080
+        self.port = 8081
         self.hc_ip = ''
         self.hc_pass = ''
         self.hc_mac = ''
