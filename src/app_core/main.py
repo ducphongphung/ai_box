@@ -329,7 +329,7 @@ class Backend(VideoMonitorApp):
                 'http://localhost:9769/api/detect',
                 json={
                     'img_src': ut.html_img_src(frame),
-                    'det_type': 'fall'
+                    'det_type': 'family'
                 }, verify=False)
 
             if rs.status_code == 200:
@@ -371,6 +371,7 @@ class Backend(VideoMonitorApp):
         except Exception as ex:
             logger.exception(ex)
 
+# Sửa hàm process ở đây, hàm này sẽ hiển thị kết quả ra màn hình
     def process_frame(self, frame, t0, regs, freeze_state):
         show = frame.copy()
 
