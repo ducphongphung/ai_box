@@ -4,9 +4,10 @@ from ultralytics import YOLO
 
 class DemoModel(object):
     def __init__(self):
-        self.model = YOLO("C:/Users\ducph\PycharmProjects/aibox\src\cv_core/models\model8s_50.pt")
+        self.model = YOLO("/src/models\model8s_50.pt")
 
     def predict(self, image):
+        image = cv2.resize(image, (640, 640))
         results = self.model.predict(image, conf = 0.3, stream=True)
         return results
 

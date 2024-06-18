@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>test</title>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.js"></script>
+    <style>
+        .img{position:absolute;z-index:1;}
+
+        #container{
+            display:inline-block;
+            position:relative;
+            }
+
+        #canvas{
+            position:relative;
+            z-index:20;
+        }
+    </style>
+
+    <script type="text/javascript">
+    <!-- instantly classify an image once it is uploaded. -->
+    $(document).ready(
+        function(){
+            $('#imagefile').change(
+                function(){
+                    if ($(this).val()){
+                        var file = this.files[0];
+                        var reader = new FileReader();
+                        reader.onloadend = function() {
+                            $('#img').attr('src', reader.result);
+                            $('#rs').text(' ');
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+            );
+        }
+    );
+
+    <!-- invoke server API -->
+    function invoke(api, http_method = 'POST'){
+        var img = document.getElementById("img");
+        if (http_method == 'POST') {
+            img_src = img.getAttribute('src');
+        } else {
+            img_src = '';
+        }
+        var face_id = '';
+        var tenant_id = '';
+        var det_type = '';
+        try {
+            face_id = document.getElementById("face_id").value;
+            tenant_id = document.getElementById("tenant_id").value;
+            det_type = document.getElementById("det_type").value;
+        } catch(e) {}
+        $.ajax({
+            url: api,
+            type: http_method,
+            data: {'img_src': img_src, 'face_id': face_id, 'tenant_id': tenant_id, 'save_img': 1, 'det_type': det_type },
+            success: function (res) {
+                $('#rs').text(res);
+                const jdata = JSON.parse(res);
+                var canvas = document.getElementById('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                var ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.strokeStyle = "#FF0000";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (jdata.hasOwnProperty("detections")) {
+                    for (let i=0; i < jdata["detections"].length; i++)
+                    {
+                        bb = jdata["detections"][i]["bb"];
+                        ctx.rect(bb[0], bb[1], bb[2]-bb[0], bb[3]-bb[1]);
+                    }
+                }
+                if (jdata.hasOwnProperty("bb")) {
+                    bb = jdata["bb"];
+                    ctx.rect(bb[0], bb[1], bb[2]-bb[0], bb[3]-bb[1]);
+                }
+                ctx.stroke();
+            },
+            error: function(res) {
+                $('#rs').text('Undefined internal server error');
+            }
+        });
+    }
+
+    function fullWindowPopup(){
+        var popup = window.open("webcam","bfs","fullscreen,scrollbars")
+        if (popup == null) {
+            alert('Please change your popup settings');
+        }
+        else  {
+            popup.moveTo(0, 0);
+            popup.resizeTo(screen.width, screen.height);
+        }
+    }
+    </script>
+</head>
+
+<body>
+<!-- Begin page content -->
+<div>
+    <div>
+        <label for="imagefile">Upload image (face-crop-size > 200x200, human-height > 80)</label>
+        <button type="button" onclick="fullWindowPopup();">Webcam</button>
+        <input type="file" id="imagefile">
+    </div>
+    <br>
+    <div>
+        <button type="button" onclick="invoke('/api/detect');">Detect</button>
+        <button type="button" onclick="invoke('/api/profiles', 'GET');">List face_ids</button>
+        <button type="button" onclick="invoke('/api/recognize');">Recognize</button>
+        <button type="button" onclick="invoke('/api/profile');">Register as</button>
+        <input type="text" id="face_id" placeholder="face_id">
+        <input type="text" id="tenant_id" placeholder="tenant_id">
+        <input type="text" id="det_type" placeholder="det_type">
+        <button type="button" onclick="invoke('/api/profile', 'DELETE');">Delete</button>
+    </div>
+    <br>
+    <div style="display: flex;flex-direction: row;">
+        <div id="container">
+            <img id="img" class="img" src="">
+            <canvas id="canvas"></canvas>
+        </div>
+        <textarea id="rs" style="width: 300px; height: 500px; margin-left: 10px"> </textarea>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set avantar_path = 'dist/img/avatar' + config.ADMIN_AVATAR + '.png' %}
+
+{% block main_header %}
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="/index" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class=""><b>AI HUB</b></span>
+        </a>
+    <!-- Header Navbar: style can be found in header.less -->
+        <div class="action-menu">
+            <div class="item" onclick="window.location.href='add-member'">Thêm thành viên</div>
+            <div class="item" onclick="window.location.href='model'">Phát hiện người lạ</div>
+            <div class="item" onclick="window.location.href='model'">Phát hiện khói cháy</div>
+            <div class="item" onclick="window.location.href='live'">Phát hiện người ngã</div>
+        </div>
+    </header>
+{% endblock %}
+
+
+{% block main_sidebar %}
+{% if config.SHOW_SIDEBAR %}
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="{{ url_for('static', filename=avantar_path) }}" class="img-circle"
+                         alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    {% if FBuser == "" %}
+                    <p>{{ current_user.id }}</p>
+                    {% else %}
+                    <p>{{ FBuser }}</p>
+                    {% endif %}
+                    <a href="#"><i class="fa fa-star"></i> {{ current_user.id }}</a>
+                </div>
+            </div>
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">DANH MỤC</li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="top-bar">
+            <div class="action">
+                <a class="change-password" href="/logout">Đổi mật khẩu</a>
+                <a class="logout" href="/logout">Đăng Xuất</a>
+            </div>
+        </div>
+        {% block content_wrapper %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block main_footer %}
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            {% if sys_info is defined %}
+                <b>Version</b> 3.{{ sys_info.version }}.{{ sys_info.update_date }}
+                <b>Licensed util</b> {{ sys_info.expire_date }}
+            {% endif %}
+        </div>
+        <strong>Copyright &copy; 2024 <a >{{ config.COPYRIGHT }}</a>.
+        </strong> All rights reserved.
+    </footer>
+{% endblock %}

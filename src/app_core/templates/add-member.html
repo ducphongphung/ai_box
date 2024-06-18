@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Thành Viên</title>
+    <link rel="stylesheet" href="../static/registerStyle.css">
+    <style>
+        .card {
+            height: 500px !important; /* Adjust the height value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+    <div class="card" >
+      <div class="card-item">
+        <div class="card-item_companyname">
+          <h1 style="color: white">Thêm Thành Viên</h1>
+        </div>
+        </div>
+        <form action="{{ url_for('add_member') }}" method="POST" enctype="multipart/form-data">
+          <div class="input-box">
+            <input type="text" name="username" placeholder="Tên tài khoản" required/>
+            <input type="password" name="password" placeholder="Mật khẩu" required/>
+            <input type="password" name="confirm_password" placeholder="Nhập lại mật khẩu" required/>
+            <input type="email" name="email" placeholder="Email" required/>
+            <label for="file-upload" class="custom-file-upload">
+              Choose Files
+            </label>
+            <input id="file-upload" type="file" name="file" multiple/>
+          </div>
+          <button id="buttonSignIn" type="submit"><b>Đăng ký</b></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

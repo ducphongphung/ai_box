@@ -1,0 +1,180 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+.slide-image {
+    width: 100%;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+/*Also*/
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter:'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	z-index:99999;
+}
+
+.sidebar-mini{
+    background-color: #222d32;
+}
+
+.main-header {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.main-header a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.main-header .action-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.main-header .action-menu .item {
+    border-radius: 20px !important;
+    width: 100% !important;
+    cursor: pointer;
+    padding: 12px 8px;
+    font-weight: 600;
+}
+
+.main-header .action-menu .item:hover {
+    background-color: #4335DE;
+    color: white;
+}
+
+.sidebar-collapse .action-menu {
+    display: none !important;
+}
+
+.pwrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.content-wrapper .top-bar {
+    background-color: #F3F8FF;
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 12px;
+}
+
+.content-wrapper .top-bar .action {
+    display: flex;
+    align-items: center;
+}
+
+.content-wrapper .top-bar .action a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    border-radius: 24px;
+    color: black;
+    font-weight: bold;
+}
+
+.content-wrapper .top-bar .action a.logout {
+    color: white;
+    background-color: black;
+}
+
+#infomation-div {
+    background: #E7EFFA;
+    padding: 40px;
+    flex-grow: 1;
+}
+
+#infomation-div .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 24px;
+    border: 1px solid black;
+    padding: 16px;
+}
+
+#input_form_content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

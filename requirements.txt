@@ -1,3 +1,10 @@
-dblib 19.24.4
-cv2 4.8.0
-ultralytics 8.1.47
+Flask
+Ultralytics
+decouple
+logger
+shapely
+flask_sqlalchemy
+flask_login
+tornado
+watchdog
+opencv-python

@@ -1,32 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="shortcut icon" href="../static/images/logo_aibox.png" type="image/x-icon">
-    <title>Model</title>
-    <link rel="stylesheet" href="../static/liveStyle.css" >
-  </head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8  offset-lg-2">
-            <h2 class="mt-5">CAMERA APP</h2>
-            <form method="post" action="{{ url_for('tasks') }}">
-                <input type="submit" value="Stop/Start" name="stop"/>
-                <input type="submit" value="Capture" name="click"/>
-                <input type="submit" value="Face" name="face"/>
-                <input type="submit" value="Start/Stop Recording" name="rec"/>
-            </form>
-            <img src="{{ url_for('video_feed') }}" height="80%">
-            <h3 style="font-family:courier;">Instructions:</h3>
-            <ol style="font-family:courier;">
-                <li>Stop/Start--Toggle between stop or start live streaming</li>
-                <li>Capture--Take still-shot and save in the 'shots' directory</li>
-                <li>Face Only--Shows just your face if present(Toggle on/off)</li>
-                <li>Start/Stop Recording--Toggle between starting and stopping video recording</li>
-            </ol>
+{% extends "layout_menu.html" %}
+
+
+{% block head %}
+    {{ super() }}
+    <title>{{ config.APP_TITLE }} | Live</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"
+          type="text/css" media="screen" charset="utf-8">
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script>
+        function copy(element)
+        {
+            var txt = $(element).text();
+            var fields = txt.split(";");
+            $("#input_url").val(fields[0]);
+            $("#conf_url").val(fields[1]);
+            $("#url_samples_model").modal('hide');
+        }
+        function update_conf()
+        {
+            $("#conf_json").val($("#edited_conf_json").val());
+        }
+    </script>
+{% endblock %}
+
+
+{% block content_wrapper %}
+<div class="modal fade" id="url_samples_model" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-sample" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1>Bookmarks</h1>
+                {% for e in config.BOOKMARKS %}
+                <a href="javascript:void();" onclick="copy(this);">{{e}}</a><br>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
-</body>
+
+<div class="modal fade" id="conf_model" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-sample" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Configurations</h2>
+                <br>
+                <h4>{{ conf_url }}</h4>
+                <br>
+                <textarea style="width: 100%; height: 500px" id="edited_conf_json">{{ conf_json }}</textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" onclick="update_conf();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="infomation-div">
+    <section class="content">
+
+        {% if err %}
+        <div class="">
+            <div>
+{#                <div class="alert alert-danger alert-dismissible">#}
+{#                    <h4><i class="icon fa fa-ban"></i> Error!</h4>#}
+{#                    {{ err }}#}
+{#                </div>#}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- configurations -->
+        <div id="input_form" class="box box-default collapsed-box" style="margin-bottom: 10px;">
+            <div class="box-header with-border">
+<!--                <div class="box-tools pull-right">-->
+<!--                    <button class="btn btn-box-tool" data-widget="collapse">-->
+<!--                        <i class="fa fa-plus"></i></button>-->
+<!--                </div>&lt;!&ndash; /.box-tools &ndash;&gt;-->
+                <div class="box-title" style="font-weight: bold; font-size: 30px">Configurations</div>
+            </div>
+            <div class="box-body table-responsive collapse in" id="input_form_content">
+                <form class="form-inline" action="live" method="post" id="form">
+                    <div class="form-group toolbar-item">
+                        <label>Stream URL</label>
+                        <input name="input_url" id="input_url" type="text" value="{{ input_url }}"
+                               style="min-width: 300px; height: 40px; padding-left: 4px; margin-top: 5px; margin-right: 8px; border: 1px solid #5B6CFF; border-radius: 8px">
+                        <label>Config</label>
+                        <input name="conf_url" id="conf_url" type="text" value="{{ conf_url }}"
+                               style="min-width: 300px; height: 40px; padding-left: 4px; margin-top: 5px; border: 1px solid #5B6CFF; border-radius: 8px">
+                        <input name="conf_json" id="conf_json" type="hidden">
+                    </div>
+                    <div style="gap: 12px">
+
+
+                    </div>
+                </form>
+                <button class="btn btn-primary" style="margin-top: 5px; margin-left: auto" data-toggle="modal" data-target="#url_samples_model">
+                    <i class="fa fa-folder-open"></i> Bookmarks </button>
+                <button class="btn btn-primary" style="margin-top: 5px" data-toggle="modal" data-target="#conf_model">
+                    <i class="fa fa-cog"></i> Configure </button>
+                <label class="btn btn-primary" style="margin-top: 5px">
+                    <i class="fa fa-refresh"></i> <input type="submit" value="Update" style="background: transparent; border: none; padding: 0" form="form"> </label>
+            </div>
+        </div>
+
+        <!-- video + events -->
+        {% if config['SHOW_LIVE'] %}
+        <div id="tableBox" class="box" style="flex-grow: 1">
+            <div class="" style="height: 100%">
+                <img src="/video_feed_mjpeg" class="" style="height: 100%; width: 100%">
+<!--                <div class="col-md-2 col-lg-2">-->
+<!--                    {% if config['APP_TITLE_SHORT'] == 'DN' %}-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="events?type=in" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> In </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="events?type=out" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Out </a></div>-->
+<!--                    {% endif %}-->
+<!--                    {% if config['APP_TITLE_SHORT'] == 'CB' %}-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="events?type=Overcrowded" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Overcrowded </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="events?type=Toofew" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Toofew </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="events?type=NoAccess" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> No access </a></div>-->
+<!--                    {% endif %}-->
+<!--                    {% if config['APP_TITLE_SHORT'] == 'VP' %}-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=VuotDenDo" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Vượt đèn đỏ </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=SaiLan" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Sai làn </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=ChuyenLan" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Chuyển làn </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=DeVach" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Đè vạch cứng </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=QuaTocDo" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Quá tốc độ </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=NguocChieu" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Ngược chiều </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=CamDung" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Dừng xe trong vùng cấm </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=CamVuot" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Vượt xe trong vùng cấm </a></div>-->
+<!--                    <div class="row" style="margin: 5px;">-->
+<!--                        <a class="btn btn-primary" href="violation?type=lp" target="_blank">-->
+<!--                        <i class="fa fa-folder-open"></i> Duyệt biển số </a></div>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+            </div>
+        </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
