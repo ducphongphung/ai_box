@@ -360,6 +360,40 @@ class FireDet(ObjDet):
             confidence=confidence,
         )
         self.is_fire = is_fire
+# Lưu các thuộc tính của kết quả cần dùng
+class FamilyDet(ObjDet):
+    def __init__(self, bbox_human, bbox_face, stranger, confidence):
+        # super().__init__(
+        #     confidence=confidence,
+        # )
+        self.bbox_human = bbox_human,
+        self.bbox_face = bbox_face,
+        self.confidence = confidence,
+        self.stranger = stranger
+
+    def to_json(self):
+        # print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+        # print(self.confidence[0])
+        final = {}
+        # if isinstance(self.bb, np.ndarray):
+        #     final['bbox_human'] = self.bbox_human.astype(int).tolist()
+        # else:
+        #     final['bbox_human'] = [int(e) for e in self.bb]
+        final = {
+            'bbox_human': [int(e) for e in self.bbox_human[0]],
+            'bbox_face': [int(e) for e in self.bbox_face[0]],
+            'stranger': self.stranger,
+            'confidence': float(self.confidence[0]),
+        }
+        return final
+
+
+
+class FamilyDets(ObjDets):
+    def __init__(self, familyDets):
+        super().__init__(familyDets)
+        self.family_dets = familyDets
+
 
     def to_json(self):
         final = {}
@@ -603,7 +637,7 @@ class ExpiringDict(OrderedDict):
 
         Returns None for non-existent or expired keys.
         """
-        key_value, key_age = self.get(key, with_age=True)  # type: Any, Union[None, float]
+        key_value, key_age = self.get(key, with_age=True)  
         if key_age:
             key_ttl = self.max_age - key_age
             if key_ttl > 0:

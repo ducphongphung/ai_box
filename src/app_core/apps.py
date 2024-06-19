@@ -17,7 +17,7 @@ logger = dbg.get_logger(__name__)
 
 class AppBase(object):
     def __init__(self):
-        self.port = 8080
+        self.port = 8081
         self.hc_ip = ''
         self.hc_pass = ''
         self.hc_mac = ''
@@ -287,7 +287,7 @@ class VideoMonitorApp(AppBase):
             self.cam_ip, self.cam_port = ut.to_ip_port(self.input_url)
 
     # region virtual methods
-    # ==========================================================================
+
     def _init(self):
         if self.video_logger:
             self.video_logger.stop()
@@ -329,7 +329,6 @@ class VideoMonitorApp(AppBase):
         self.roi = Roi(tl=(self.left, self.stopline_y - self.count_margin),
                        br=(self.right, self.stopline_y + self.count_margin))
 
-    # ==========================================================================
     # endregion
 
     @property

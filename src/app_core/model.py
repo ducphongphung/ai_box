@@ -4,7 +4,7 @@ from ultralytics import YOLO
 
 class DemoModel(object):
     def __init__(self):
-        self.model = YOLO("/src/models\model8s_50.pt")
+        self.model = YOLO("/src/models/model8s_50.pt")
 
     def predict(self, image):
         image = cv2.resize(image, (640, 640))
@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     demo = DemoModel()
 
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
     fps = cap.get(cv2.CAP_PROP_FPS)
     print("FPS: {}".format(fps))
 

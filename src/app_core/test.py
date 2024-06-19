@@ -5,6 +5,7 @@ import numpy
 
 Gst.init(None)
 
+app = Flask(__name__)
 
 image_arr = None
 
