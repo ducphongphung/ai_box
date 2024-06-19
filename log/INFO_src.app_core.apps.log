@@ -37495,3 +37495,121 @@ Traceback (most recent call last):
   File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
     version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
 FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:08:17,239 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:08:17,260 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 482, in live
+    return render_live(err=err)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 470, in render_live
+    return render_template('live.html', current_user=current_user, err=err,
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\live.html", line 1, in top-level template code
+    {% extends "layout_menu.html" %}
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\layout_menu.html", line 81, in template
+    {% block main_header %}
+jinja2.exceptions.TemplateAssertionError: block 'main_header' defined twice
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:11:26,282 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:11:32,862 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:17:17,376 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:20:16,613 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:27:24,665 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:35:28,586 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:35:39,363 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:50:30,396 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:51:06,986 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:51:09,029 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 17:51:27,861 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-18 18:23:07,060 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-19 00:38:04,780 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-19 00:38:26,801 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-19 01:21:21,787 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-19 08:08:06,724 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-19 08:08:10,671 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 722, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'

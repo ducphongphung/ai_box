@@ -12,8 +12,8 @@
         <div class="action-menu">
             <div class="item" onclick="window.location.href='add-member'">Thêm thành viên</div>
             <div class="item" onclick="window.location.href='live'">Phát hiện người lạ</div>
-            <div class="item" onclick="window.location.href='live'">Phát hiện khói cháy</div>
-            <div class="item" onclick="window.location.href='live'">Phát hiện người ngã</div>
+            <div class="item" onclick="document.getElementById('set-fire-form').submit();">Phát hiện khói cháy</div>
+            <div class="item" onclick="document.getElementById('set-fall-form').submit();">Phát hiện người ngã</div>
         </div>
     </header>
 {% endblock %}
@@ -73,3 +73,18 @@
         </strong> All rights reserved.
     </footer>
 {% endblock %}
+
+<!-- Form ẩn để gửi yêu cầu POST -->
+<form id="set-fire-form" action="{{ url_for('set_fire') }}" method="POST" style="display: none;"></form>
+<form id="set-fall-form" action="{{ url_for('set_fall') }}" method="POST" style="display: none;"></form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('set-fire-form').addEventListener('submit', function() {
+        console.log('Phát hiện khói cháy');
+    });
+    document.getElementById('set-fall-form').addEventListener('submit', function() {
+        console.log('Phát hiện người ngã');
+    });
+});
+</script>

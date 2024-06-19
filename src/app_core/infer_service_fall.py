@@ -26,11 +26,6 @@ app.secret_key = os.urandom(64)
 # region WS API
 # ==============================================================================
 
-
-
-
-
-
 @app.route('/api/detect', methods=['POST'])
 def api_detect():
     params = get_params()

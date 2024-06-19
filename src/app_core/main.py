@@ -28,7 +28,7 @@ static_dir = os.path.abspath('static')
 
 global capture, rec_frame, grey, switch, neg, function, rec, out, previous_time
 capture = 0
-function = 0
+function = 'fire'
 switch = 1
 rec = 0
 
@@ -80,6 +80,17 @@ with app.app_context():
 def loader_user(user_id):
     return Users.query.get(user_id)
 
+@app.route('/set_fire', methods=['POST'])
+def set_fire():
+    global function
+    function = 'fire'
+    return redirect(url_for('live'))
+
+@app.route('/set_fall', methods=['POST'])
+def set_fall():
+    global function
+    function = 'fall'
+    return redirect(url_for('live'))
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
@@ -318,7 +329,7 @@ class Backend(VideoMonitorApp):
             rs.append(regs)
         return rs
 
-    def get_detections(self, frame):
+    def get_detections(self, frame, function):
         detections = []
         reg = None
         try:
@@ -326,7 +337,7 @@ class Backend(VideoMonitorApp):
                 'http://localhost:9769/api/detect',
                 json={
                     'img_src': ut.html_img_src(frame),
-                    'det_type': 'fall'
+                    'det_type': function
                 }, verify=False)
 
             if rs.status_code == 200:
@@ -410,7 +421,7 @@ class Backend(VideoMonitorApp):
     def process_frame(self, frame, t0, regs, freeze_state):
         show = frame.copy()
 
-        detections = self.get_detections(frame)
+        detections = self.get_detections(frame, function)
 
         if len(detections):
             for d in detections:
