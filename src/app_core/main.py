@@ -1,9 +1,9 @@
 
-from flask import Flask, render_template, Response, request, redirect, url_for
+from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import sys
-
+import pyautogui
 # Change the path to folder ai_box
 sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
 from src.app_core.apps import VideoMonitorApp
@@ -12,6 +12,7 @@ from src.app_core.conf import *
 from src.utils.common import *
 from src.cv_core.family.FamilyDetector import FamilyDetector
 
+import traceback
 import os
 import cv2
 import json
@@ -263,6 +264,98 @@ def main_page():
 def model():
     return render_template('live_base.html')
 
+points = []
+
+@app.route('/zone')
+def zone():
+    return render_template('zone.html')
+
+
+@app.route('/draw_zone', methods=['GET', 'POST'])
+def draw_zone():
+    if request.method == 'GET':
+        window_width = 1480
+        window_height = 830
+        global points
+        global list_point
+        list_point = {}
+
+        file_path = 'setup/sc/source/camera_zone.json'
+
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+
+            for id_cam in data:
+                url = data[id_cam]['cam_url']
+
+                cam = cv2.VideoCapture(url)
+
+                if not cam.isOpened():
+                    return "Error: Could not open camera"
+
+                ret, frame = cam.read()
+
+                if not ret:
+                    return "Error: Could not read frame from camera"
+
+                frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+                frame_resized = cv2.resize(frame, (window_width, window_height))
+
+                for zone_type in ['zone_fall', 'zone_fire', 'zone_stranger']:
+                    points = []
+
+                    def draw(event, x, y, flags, param):
+                        if event == cv2.EVENT_LBUTTONDOWN:
+                            if len(points) < 4:
+                                points.append((x, y))
+                                cv2.circle(frame_resized, (x, y), 5, (0, 255, 0), -1)
+                                if len(points) == 4:
+                                    cv2.line(frame_resized, points[0], points[1], (255, 0, 0), 2)
+                                    cv2.line(frame_resized, points[1], points[2], (255, 0, 0), 2)
+                                    cv2.line(frame_resized, points[2], points[3], (255, 0, 0), 2)
+                                    cv2.line(frame_resized, points[3], points[0], (255, 0, 0), 2)
+                            cv2.imshow(zone_type, frame_resized)
+
+
+                    cv2.namedWindow(zone_type, cv2.WINDOW_NORMAL)
+                    cv2.resizeWindow(zone_type, window_width, window_height)
+                    cv2.setMouseCallback(zone_type, draw)
+
+                    while True:
+                        cv2.imshow(zone_type, frame_resized)
+                        k = cv2.waitKey(1) & 0xFF
+                        if k == ord('q'):
+                            points = []
+                            break
+                        if k == 27 or len(points) == 4:
+                            break
+                    
+                    data_json = {}
+                    data_json['zone_name'] = zone_type
+                    data_json['coords'] = points
+                    if zone_type == 'zone_fall':
+                        data_json['zone_attributes'] = {'163':0, '164':1, '165':0}
+                    elif zone_type == 'zone_fire':
+                        data_json['zone_attributes'] = {'163':1, '164':0, '165':0}
+                    elif zone_type == 'zone_stranger':
+                        data_json['zone_attributes'] = {'163':0, '164':0, '165':1}
+                    data[id_cam]['zone'].append(data_json)
+                    # Sau khi hoàn tất việc vẽ các vùng cho một loại, đóng cửa sổ
+                    cv2.destroyAllWindows()
+
+            # Lưu lại toàn bộ dữ liệu JSON sau khi hoàn thành
+            with open(file_path, 'w') as file:
+                json.dump(data, file, indent=4)
+
+            return jsonify(data)
+        except Exception as e:
+            print("An error occurred:", str(e))
+            print(traceback.format_exc())
+            return "An internal error occurred.", 500
+    else:
+        return "Use POST method to draw the zone."
+    
 
 @app.route('/video_feed')
 def video_feed():
@@ -391,12 +484,16 @@ class Backend(VideoMonitorApp):
                     cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
                     if len(d['bbox_face']):
                         x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
-                        cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                        cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                        if d['stranger'] == 1:
+                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                            cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                        else:
+                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 0, 255), 2)
+                            cv2.putText(show, 'Unknown', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                            self.tracks.append(1)
                     else:
                         self.tracks.append(1)
-                    if d['stranger'] == 0:
-                        self.tracks.append(1)
+                        
 
         current_time = time.time()
         # Default passing to 60s

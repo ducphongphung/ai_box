@@ -182,11 +182,13 @@ class FamilyDetector(object):
                                     # color = (0, 255, 0)
                                     statuses.append(1)
                                     conf.append(best_match_score)
+                                    faces_bbox.append(face_bbox)
+                                    humans_bbox.append(human_bbox)
                                 else:
                                     statuses.append(0)
                                     conf.append(0)
-                                faces_bbox.append(face_bbox)
-                                humans_bbox.append(human_bbox)
+                                    faces_bbox.append(face_bbox)
+                                    humans_bbox.append(human_bbox)
                                 # cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
                                 # cv2.putText(frame, text, (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, color, 2)
                                 

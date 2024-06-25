@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Zone</title>
+</head>
+<body>
+    <h1>Draw Zone</h1>
+    <button onclick="startDrawing()">Start Drawing</button>
+
+    <script>
+        function startDrawing() {
+            fetch('/draw_zone', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Points:', data);
+                alert('Points: ' + JSON.stringify(data));
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
