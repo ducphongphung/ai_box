@@ -15,7 +15,7 @@ class FallDetector(object):
 
     def _load_model(self):
         # device = "cuda" if torch.cuda.is_available() else "cpu"
-        model_path = os.path.abspath('src/app_core/models/model8s_50.pt')
+        model_path = os.path.abspath('models/model8s_50.pt')
         model = YOLO( model_path)
         return model
 

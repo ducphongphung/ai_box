@@ -29695,3 +29695,129 @@
 2024-06-19 08:08:10,774 INFO Video source: 0. Grab fps: 30
 2024-06-19 08:08:10,775 ERROR missing frame detected
 2024-06-19 08:08:15,012 ERROR consecutive_missing_frames: 91
+2024-06-19 08:50:45,313 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:50:45,316 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:50:45,369 INFO Video source: 0. Grab fps: 30
+2024-06-19 08:50:45,370 ERROR missing frame detected
+2024-06-19 08:50:49,616 ERROR consecutive_missing_frames: 91
+2024-06-19 08:55:54,612 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:55:54,614 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:55:54,651 INFO Video source: 0. Grab fps: 30
+2024-06-19 08:55:54,652 ERROR missing frame detected
+2024-06-19 08:55:59,066 ERROR consecutive_missing_frames: 91
+2024-06-19 08:56:43,968 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:56:43,970 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 08:56:44,011 INFO Video source: 0. Grab fps: 30
+2024-06-19 08:56:44,012 ERROR missing frame detected
+2024-06-19 08:56:48,646 ERROR consecutive_missing_frames: 91
+2024-06-19 10:28:33,296 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 10:28:33,300 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 10:28:33,423 INFO Video source: 0. Grab fps: 30
+2024-06-19 10:28:33,424 ERROR missing frame detected
+2024-06-19 10:28:37,742 ERROR consecutive_missing_frames: 91
+2024-06-19 11:07:50,071 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 11:07:50,074 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-19 11:07:50,126 INFO Video source: 0. Grab fps: 30
+2024-06-19 11:07:50,129 ERROR missing frame detected
+2024-06-19 11:07:54,796 ERROR consecutive_missing_frames: 91
+2024-06-24 14:30:32,486 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-24 14:30:32,488 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-24 14:30:32,554 INFO Video source: 0. Grab fps: 30
+2024-06-24 14:30:32,554 ERROR missing frame detected
+2024-06-24 14:30:36,840 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:04,981 INFO FrameGrabber: gracefully stopped: webcam0
+2024-06-24 14:31:06,451 INFO Video source: rtsp://admin:Facenet2022@192.168.1.12:554/Streaming/Channels/1. Grab fps: 30
+2024-06-24 14:31:06,451 ERROR missing frame detected
+2024-06-24 14:31:10,699 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:10,765 ERROR missing frame detected
+2024-06-24 14:31:15,008 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:15,096 ERROR missing frame detected
+2024-06-24 14:31:19,510 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:19,574 ERROR missing frame detected
+2024-06-24 14:31:23,826 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:23,887 ERROR missing frame detected
+2024-06-24 14:31:28,155 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:28,240 ERROR missing frame detected
+2024-06-24 14:31:32,496 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:32,593 ERROR missing frame detected
+2024-06-24 14:31:36,837 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:36,957 ERROR missing frame detected
+2024-06-24 14:31:41,196 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:41,272 ERROR missing frame detected
+2024-06-24 14:31:45,603 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:45,678 ERROR missing frame detected
+2024-06-24 14:31:49,930 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:50,005 ERROR missing frame detected
+2024-06-24 14:31:54,319 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:54,691 ERROR missing frame detected
+2024-06-24 14:31:58,982 ERROR consecutive_missing_frames: 91
+2024-06-24 14:31:59,078 ERROR missing frame detected
+2024-06-24 14:32:02,259 INFO FrameGrabber: gracefully stopped: 192.168.1.12
+2024-06-24 14:32:04,800 INFO Video source: rtsp://admin:abcd1234@192.168.1.12:554/Streaming/Channels/2. Grab fps: 30
+2024-06-24 14:32:04,843 ERROR buffer drop: 22, actual fps: 0, limit: 30
+2024-06-24 14:32:58,054 ERROR buffer drop: 6, actual fps: 19, limit: 30
+2024-06-24 14:33:53,132 ERROR buffer drop: 6, actual fps: 19, limit: 30
+2024-06-24 14:33:59,026 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 14:35:05,395 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 14:38:17,933 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 14:38:51,409 ERROR buffer drop: 6, actual fps: 20, limit: 30
+2024-06-24 14:39:08,016 ERROR buffer drop: 5, actual fps: 16, limit: 30
+2024-06-24 14:39:36,762 ERROR buffer drop: 6, actual fps: 20, limit: 30
+2024-06-24 14:45:04,385 ERROR buffer drop: 8, actual fps: 20, limit: 30
+2024-06-24 14:47:03,535 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 14:52:31,143 ERROR missing frame detected
+2024-06-24 14:55:20,508 INFO FrameGrabber: gracefully stopped: 192.168.1.12
+2024-06-24 14:55:20,509 INFO FrameGrabber: gracefully stopped: 192.168.1.12
+2024-06-24 14:55:22,228 INFO Video source: rtsp://admin:abcd1234@192.168.1.12:554/Streaming/Channels/2. Grab fps: 30
+2024-06-24 14:55:22,280 ERROR buffer drop: 21, actual fps: 0, limit: 30
+2024-06-24 15:03:37,635 ERROR buffer drop: 7, actual fps: 20, limit: 30
+2024-06-24 15:03:51,188 ERROR buffer drop: 7, actual fps: 19, limit: 30
+2024-06-24 15:10:13,095 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:10:22,800 ERROR buffer drop: 8, actual fps: 20, limit: 30
+2024-06-24 15:10:23,889 ERROR buffer drop: 6, actual fps: 15, limit: 30
+2024-06-24 15:10:24,666 ERROR buffer drop: 6, actual fps: 15, limit: 30
+2024-06-24 15:10:29,678 ERROR buffer drop: 7, actual fps: 20, limit: 30
+2024-06-24 15:11:14,128 ERROR buffer drop: 6, actual fps: 18, limit: 30
+2024-06-24 15:12:18,964 ERROR buffer drop: 9, actual fps: 19, limit: 30
+2024-06-24 15:14:24,044 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:16:11,622 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 15:19:12,800 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:19:15,093 ERROR buffer drop: 8, actual fps: 19, limit: 30
+2024-06-24 15:47:01,922 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:47:02,121 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:47:40,572 ERROR buffer drop: 5, actual fps: 18, limit: 30
+2024-06-24 15:48:47,849 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:49:08,124 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 15:50:57,757 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:51:56,617 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 15:52:12,613 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:52:57,812 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:54:07,116 ERROR buffer drop: 6, actual fps: 18, limit: 30
+2024-06-24 15:54:59,242 ERROR buffer drop: 5, actual fps: 11, limit: 30
+2024-06-24 15:55:34,660 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 15:58:16,474 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 15:59:55,987 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 16:00:16,097 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 16:15:15,049 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 16:15:15,250 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 16:25:44,613 INFO FrameGrabber: gracefully stopped: 192.168.1.12
+2024-06-24 16:25:44,616 INFO FrameGrabber: gracefully stopped: 192.168.1.12
+2024-06-24 16:25:46,246 INFO Video source: rtsp://admin:abcd1234@192.168.1.12:554/Streaming/Channels/2. Grab fps: 30
+2024-06-24 16:25:46,298 ERROR buffer drop: 21, actual fps: 0, limit: 30
+2024-06-24 16:29:32,523 ERROR buffer drop: 10, actual fps: 19, limit: 30
+2024-06-24 16:34:39,083 ERROR buffer drop: 6, actual fps: 20, limit: 30
+2024-06-24 16:50:42,403 ERROR buffer drop: 5, actual fps: 18, limit: 30
+2024-06-24 16:50:44,794 ERROR buffer drop: 6, actual fps: 18, limit: 30
+2024-06-24 16:50:47,289 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 16:52:06,249 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 17:02:44,076 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 17:18:00,497 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 17:18:12,610 ERROR buffer drop: 7, actual fps: 20, limit: 30
+2024-06-24 17:19:12,255 ERROR buffer drop: 5, actual fps: 17, limit: 30
+2024-06-24 17:19:12,309 ERROR buffer drop: 6, actual fps: 17, limit: 30
+2024-06-24 17:19:34,942 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 17:19:47,066 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 17:38:12,548 ERROR buffer drop: 5, actual fps: 19, limit: 30
+2024-06-24 17:39:29,184 ERROR buffer drop: 5, actual fps: 20, limit: 30
+2024-06-24 17:48:17,480 ERROR buffer drop: 6, actual fps: 19, limit: 30
+2024-06-24 18:03:58,527 ERROR buffer drop: 9, actual fps: 17, limit: 30

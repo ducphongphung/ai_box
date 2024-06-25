@@ -22,14 +22,14 @@ import requests
 
 logger = dbg.get_logger("tt_zone")
 
-template_dir = os.path.abspath('src/app_core/templates')
-static_dir = os.path.abspath('src/app_core/static')
+template_dir = os.path.abspath('templates')
+static_dir = os.path.abspath('static')
 
 
 
 global capture, rec_frame, grey, switch, neg, function, rec, out, previous_time
 capture = 0
-function = 'fire'
+function = 'fall'
 switch = 1
 rec = 0
 
@@ -352,7 +352,6 @@ class Backend(VideoMonitorApp):
         except requests.exceptions.ConnectionError:
             logger.error("Cannot connect to inference service")
         if reg:
-            print(reg)
             detections = reg['detections']
 
         return detections

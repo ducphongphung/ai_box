@@ -4677,3 +4677,246 @@ KeyError: 0
 2024-06-19 08:09:04,121 ERROR Cannot connect to inference service
 2024-06-19 08:09:08,222 ERROR Cannot connect to inference service
 2024-06-19 08:09:12,335 ERROR Cannot connect to inference service
+2024-06-19 08:55:06,702 ERROR Cannot connect to inference service
+2024-06-19 08:55:10,759 ERROR Cannot connect to inference service
+2024-06-19 08:55:29,141 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 410, in send_fall_event_not_in_zone
+    # pts = [[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]]]  # bb to 4 points
+KeyError: 'bb'
+2024-06-19 08:57:30,300 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 410, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 08:57:41,913 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 410, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 08:57:53,715 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 410, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:37:04,900 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:37:23,067 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:37:41,210 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:38:14,430 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:38:43,706 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:39:06,033 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 10:39:07,738 ERROR Cannot connect to inference service
+2024-06-19 10:39:11,813 ERROR Cannot connect to inference service
+2024-06-19 10:39:15,899 ERROR Cannot connect to inference service
+2024-06-19 10:39:19,991 ERROR Cannot connect to inference service
+2024-06-19 10:39:24,063 ERROR Cannot connect to inference service
+2024-06-19 11:08:33,706 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:09:03,110 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:09:21,609 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:09:56,362 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:10:13,664 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:11:23,183 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:11:34,990 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:11:54,813 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:12:30,759 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:14:40,893 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:15:07,997 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:21:21,055 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:24:24,441 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:24:44,596 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:25:22,347 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-19 11:26:12,019 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 14:38:58,145 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 14:51:11,581 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 14:51:37,935 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 14:51:49,675 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:18:41,486 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:19:45,158 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:20:29,294 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:23:33,601 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:25:39,865 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:26:39,703 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:27:52,064 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:28:54,506 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:30:26,967 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:31:24,862 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:33:19,829 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:35:17,468 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:38:47,886 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:41:48,161 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:43:09,424 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 15:43:51,489 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 16:20:17,794 ERROR 'bb'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 409, in send_fall_event_not_in_zone
+    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+KeyError: 'bb'
+2024-06-24 16:28:39,760 WARNING zone: {'zone_name': 'AAA', 'coords': [[386.56799102247805, 131.05262943736295], [381.15132007264253, 278.486846388432], [242.81796960663377, 294.4736756441886], [181.98466197231363, 172.20395379317435]], 'zone_attributes': {'163': 1, '164': 0}, 'zone_id': 'e1faffb3-e614-e6c2-fba7-4296962386b7', 'event_id': 2214, 'det_seq': deque([], maxlen=9)}: skip sending email as detection is not stable

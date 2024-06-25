@@ -57,13 +57,13 @@ output_height = 680
 
 class FamilyDetector(object):
     def __init__(self):
-        self.prototxt_path = 'src/app_core/models/deploy.prototxt.txt'
-        self.caffe_model_path = 'src/app_core/models/res10_300x300_ssd_iter_140000.caffemodel'
+        self.prototxt_path = os.path.abspath('models/deploy.prototxt.txt')
+        self.caffe_model_path = os.path.abspath('models/res10_300x300_ssd_iter_140000.caffemodel')
         self.training_data_path = 'src/uploads'
-        self.tflite_model_path = 'src/app_core/models/model.tflite'
+        self.tflite_model_path = os.path.abspath('models/model.tflite')
         self.net = cv2.dnn.readNetFromCaffe(self.prototxt_path, self.caffe_model_path)
-        self.human_detector = YOLO('src/app_core/models/yolov8n.pt')
-        self.stored_embeddings = np.load('src/app_core/models/face_embeddings.npz')['embeddings']
+        self.human_detector = YOLO(os.path.abspath('models/yolov8n.pt'))
+        self.stored_embeddings = np.load(os.path.abspath('models/face_embeddings.npz'))['embeddings']
         # Tải mô hình TFLite
         self.interpreter = tf.lite.Interpreter(model_path=self.tflite_model_path)
         self.interpreter.allocate_tensors()
@@ -126,7 +126,7 @@ class FamilyDetector(object):
         faces_embeddings = np.array(faces_embeddings)
 
         # Lưu các vector nhúng
-        np.savez('src/app_core/models/face_embeddings.npz', embeddings=faces_embeddings)
+        np.savez(os.path.abspath('models/face_embeddings.npz'), embeddings=faces_embeddings)
     
         print(f"Đã lưu vector nhúng từ dữ liệu huấn luyện.")
     
