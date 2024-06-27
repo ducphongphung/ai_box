@@ -1,8 +1,9 @@
-
 from flask import Flask, render_template, Response, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import sys
+from collections import deque
+from shapely import geometry
 
 # Change the path to folder ai_box
 sys.path.append(r'C:\Users\ducph\PycharmProjects\ai_box')
@@ -29,7 +30,7 @@ static_dir = os.path.abspath('static')
 
 global capture, rec_frame, grey, switch, neg, function, rec, out, previous_time
 capture = 0
-function = 'fall'
+function = ''
 switch = 1
 rec = 0
 
@@ -96,6 +97,12 @@ def set_fall():
     function = 'fall'
     return redirect(url_for('live'))
 
+@app.route('/set_stranger', methods=['POST'])
+def set_stranger():
+    global function
+    function = 'stranger'
+    return redirect(url_for('live'))
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -141,98 +148,6 @@ def logout():
     logout_user()
     return redirect(url_for("login"))
 
-# camera = cv2.VideoCapture("rtsp://admin:Facenet2022@192.168.1.3:554/Streaming/Channels/1")
-camera = cv2.VideoCapture(0)
-
-
-def draw_bounding_boxes(frame, results):
-    for result in results:
-        # Extract the bounding box coordinates
-        boxes = result.boxes
-        for box in boxes:
-            # The box tensor contains [x_min, y_min, x_max, y_max, confidence, class]
-            x_min, y_min, x_max, y_max = int(box[0]), int(box[1]), int(box[2]), int(box[3])
-            confidence = box[4]
-            label = f"{int(box[5])} {confidence:.2f}"
-
-            # Draw the rectangle
-            frame = cv2.rectangle(frame, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
-
-            # Draw the label
-            frame = cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-    return frame
-
-def send_email():
-    print("Attempting to send email...")  # Add a print statement to indicate the function is called
-    # Email configuration
-    smtp_server = "smtp.gmail.com"
-    port = 465
-    email = "aiboxmail0@gmail.com"
-
-    sender_email = email
-    receiver_email = "ducphongBKEU@gmail.com"
-
-    message = """
-    Subject: Fall Email
-    Fallen!!!!!!
-    """
-
-    # Connect to the SMTP server and send the email
-    try:
-        with smtplib.SMTP_SSL(smtp_server, port) as server:
-            # key application 3th
-            server.login(email, "agfb qgra wvrb xpwo")
-            server.sendmail(sender_email, receiver_email, message)
-        print("Email sent successfully!")  # Add a print statement to indicate successful email sending
-    except Exception as e:
-        print("Error sending email:", e)  # Add a print statement to print out the error message
-
-
-def record(out):
-    global rec_frame
-    while rec:
-        time.sleep(0.05)
-        out.write(rec_frame)
-
-
-def demo(frame):
-    global model
-    results = model.predict(frame)
-    return frame, results
-
-
-def gen_frames():  # generate frame by frame from camera
-    global out, capture, rec_frame
-    while True:
-        success, frame = camera.read()
-        if success:
-            if face:
-                frame, results = demo(frame)
-                for result in results:
-                    print(result.boxes)
-                frame = draw_bounding_boxes(frame, results)
-            if capture:
-                capture = 0
-                now = datetime.datetime.now()
-                p = os.path.sep.join(['src/shots', "shot_{}.png".format(str(now).replace(":", ''))])
-                cv2.imwrite(p, frame)
-            if rec:
-                rec_frame = frame
-                frame = cv2.putText(cv2.flip(frame, 1), "Recording...", (0, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 4)
-                frame = cv2.flip(frame, 1)
-
-            try:
-                ret, buffer = cv2.imencode('.jpg', cv2.flip(frame, 1))
-                frame = buffer.tobytes()
-                yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-            except Exception as e:
-                print("Exception {}".format(e))
-        else:
-            pass
-
-
 @app.route('/add-member', methods=["GET", "POST"])
 def add_member():
     if request.method == "POST":
@@ -264,237 +179,6 @@ def add_member():
 
     return render_template('add-member.html')
 
-
-@app.route('/main')
-def main_page():
-    return render_template('admin.html')
-
-
-
-@app.route('/model')
-def model():
-    return render_template('live_base.html')
-
-
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-@app.route('/requests', methods=['POST', 'GET'])
-def tasks():
-    global switch, camera
-    if request.method == 'POST':
-        if request.form.get('click') == 'Capture':
-            global capture
-            capture = 1
-        elif request.form.get('face') == 'Face':
-            global face
-            face = not face
-            if face:
-                time.sleep(4)
-        elif request.form.get('stop') == 'Stop/Start':
-            if switch == 1:
-                switch = 0
-                camera.release()
-                cv2.destroyAllWindows()
-            else:
-                camera = cv2.VideoCapture(0)
-                switch = 1
-        elif request.form.get('rec') == 'Start/Stop Recording':
-            global rec, out
-            rec = not rec
-            if rec:
-                now = datetime.datetime.now()
-                fourcc = cv2.VideoWriter_fourcc(*'XVID')
-                out = cv2.VideoWriter('vid_{}.avi'.format(str(now).replace(":", '')), fourcc, 20.0, (640, 480))
-                # Start new thread for recording the video
-                thread = Thread(target=record, args=[out, ])
-                thread.start()
-            elif not rec:
-                out.release()
-
-    elif request.method == 'GET':
-        return render_template('live_base.html')
-    return render_template('live_base.html')
-
-class Backend(VideoMonitorApp):
-    def __init__(self):
-        super(Backend, self).__init__()
-        self.zones_cache = {}
-        self.msg_throttler.max_age = 5
-        self.previous_time = None
-        self.tracks = deque(maxlen=global_cfg.FALL_DET_WINDOW_SIZE)
-
-    def detect_batch(self, bgrs):
-        rs = []
-        for bgr in bgrs:
-            bboxes = []  # run detection to get bboxes
-
-            dets = ObjDets([ObjDet(bb) for bb in bboxes])
-            regs = ObjRegs(aObjDets=dets)
-            rs.append(regs)
-        return rs
-
-    def get_detections(self, frame, function):
-        detections = []
-        reg = None
-        try:
-            rs = requests.post(
-                'http://localhost:9769/api/detect',
-                json={
-                    'img_src': ut.html_img_src(frame),
-                    'det_type': function
-                }, verify=False)
-
-            if rs.status_code == 200:
-                reg = json.loads(rs.content)
-        except requests.exceptions.ConnectionError:
-            logger.error("Cannot connect to inference service")
-        if reg:
-            detections = reg['detections']
-
-        return detections
-
-    def send_fall_events(self, detections):
-        try:
-            send_email()
-            # rdhc_api.send_event_fall_hc(RdSwitchStatus.FALLEN, jpg_as_text, cam_id=self.cam_id)
-            self.tracks.clear()
-        except:
-            self.hc_connected = False
-
-
-    def set_zone_cache(self):
-        try:
-            new_zones_cache = {}
-            for zone in self.zones:
-                zone_id = zone['zone_id']
-                if zone_id in self.zones_cache:
-                    new_zones_cache[zone_id] = self.zones_cache[zone_id]
-                else:
-                    new_zones_cache[zone_id] = zone.copy()
-                    new_zones_cache[zone_id]['det_seq'] = deque(maxlen=global_cfg.HUMAN_DET_TIME_WINDOW_SIZE)
-
-                self.zones_cache = new_zones_cache
-        except Exception as ex:
-            logger.exception(ex)
-
-    def send_fall_passing_events(self, detections, frame=None):
-        try:
-            self.send_fall_events(detections)
-        except Exception as ex:
-            logger.exception(ex)
-
-    def send_fall_event_not_in_zone(self, detections, image):
-        try:
-            new_zones_cache = {}
-            for zone in self.zones:
-                zone_id = zone['zone_id']
-                if zone_id in self.zones_cache:
-                    new_zones_cache[zone_id] = self.zones_cache[zone_id]
-                else:
-                    new_zones_cache[zone_id] = zone.copy()
-                    new_zones_cache[zone_id]['det_seq'] = deque(maxlen=global_cfg.HUMAN_DET_TIME_WINDOW_SIZE)
-
-            self.zones_cache = new_zones_cache
-            # build the detection sequence for each zone, the seq contains detections from 9 past frames
-            for zone_id, zone in self.zones_cache.items():
-                if zone['zone_attributes']['164'] == 0:
-                    zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
-                    zone_has_motion = False
-                    # center of body inside zone_poly_expanded -> zone has detection
-                    for bb in detections:
-                        # pts = [[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]]]  # bb to 4 points
-                        pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
-                               [bb['bb'][0], bb['bb'][3]]]  # bb thành 4 điểm
-                        if zone_poly.intersects(geometry.Polygon(pts)):
-                            zone_has_motion = True
-
-                    try:
-                        # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
-                        if not zone_has_motion:
-                            self.send_fall_passing_events(detections, frame= image)
-
-                        else:  # keep current switch status if detection unstable: <= 33% detection
-                            logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
-                    except:
-                        self.hc_connected = False
-                else:
-                    self.send_fall_passing_events(detections, frame= image)
-        except Exception as ex:
-            logger.exception(ex)
-
-    def process_frame(self, frame, t0, regs, freeze_state):
-        show = frame.copy()
-
-        detections = self.get_detections(frame, function)
-
-
-        if len(detections):
-            for d in detections:
-                if function == 'fall':
-                    bb = d['bb']
-                    dr.draw_box(show, bb, line1="FALLEN"  if d['is_fallen'] == 1 else None,
-                                color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
-                    if d['is_fallen'] == 1:
-                        self.tracks.append(1)
-                elif function == 'fire':
-                    bb = d['bb']
-                    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
-                                color=(0, 0, 255) if d['is_fire'] == 1 else None, simple=True)
-                    if d['is_fire'] == 1:
-                        self.tracks.append(1)
-                else:
-                    if len(d['bbox_human']):
-                        x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
-                        cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
-                        cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
-                        if len(d['bbox_face']):
-                            x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
-                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                            cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-                        else:
-                            self.tracks.append(1)
-                        if d['stranger'] == 0:
-                            self.tracks.append(1)
-
-        current_time = time.time()
-        # Default passing to 60s
-        if self.previous_time is None:
-            self.previous_time = current_time
-        elif self.previous_time is not None and current_time - self.previous_time > 7 and sum(self.tracks) >= 30:
-            self.previous_time = current_time
-            self.send_fall_event_not_in_zone(detections=detections, image = show)
-            self.tracks.clear()
-        return show
-
-
-    @property
-    def zones(self):
-        # print(self.cam_id)
-        rs = self.conf.get(self.cam_id, {}).get('zone', [])
-        if not isinstance(rs, list):
-            return []
-        else:
-            return rs
-
-    def draw_static_info(self, disp):
-        super(Backend, self).draw_static_info(disp)
-        for zone in self.zones_cache.values():
-            color = dr.RED if zone.get('light') else dr.WHITE
-            dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
-
-    def on_conf_update(self, frame):
-        super(Backend, self).on_conf_update(frame)
-        self.conf['count_margin'] = 0
-        self.conf['stopline_y'] = 0
-        self.conf = read_json_conf()
-        self.set_zone_cache()
-
-    def add_cli_opts(self):
-        super(Backend, self).add_cli_opts()
-        self.parser.add_option('--n_frame', type=int, default=20)
 
 def render_live(err=''):
     return render_template('live.html', current_user=current_user, err=err,
@@ -638,9 +322,211 @@ def conf_camera():
         return return_json("Lỗi. ", ex, ret_code=1)
 
 
-from collections import deque
-from shapely import geometry
+class Backend(VideoMonitorApp):
+    def __init__(self):
+        super(Backend, self).__init__()
+        self.zones_cache = {}
+        self.msg_throttler.max_age = 5
+        self.previous_time = None
+        self.tracks = deque(maxlen=global_cfg.FALL_DET_WINDOW_SIZE)
 
+
+    def get_detections(self, frame, function):
+        detections = []
+        reg = None
+        try:
+            rs = requests.post(
+                'http://localhost:9769/api/detect',
+                json={
+                    'img_src': ut.html_img_src(frame),
+                    'det_type': function
+                }, verify=False)
+
+            if rs.status_code == 200:
+                reg = json.loads(rs.content)
+        except requests.exceptions.ConnectionError:
+            logger.error("Cannot connect to inference service")
+        if reg:
+            detections = reg['detections']
+
+        return detections
+
+    def send_events(self, key):
+        try:
+            send_email(key)
+            self.tracks.clear()
+        except Exception as ex:
+            logger.exception(ex)
+
+    def set_zone_cache(self):
+        try:
+            new_zones_cache = {}
+            for zone in self.zones:
+                zone_id = zone['zone_id']
+                if zone_id in self.zones_cache:
+                    new_zones_cache[zone_id] = self.zones_cache[zone_id]
+                else:
+                    new_zones_cache[zone_id] = zone.copy()
+                    new_zones_cache[zone_id]['det_seq'] = deque(maxlen=global_cfg.HUMAN_DET_TIME_WINDOW_SIZE)
+
+                self.zones_cache = new_zones_cache
+        except Exception as ex:
+            logger.exception(ex)
+
+    def send_passing_events(self, key):
+        try:
+            self.send_events(key)
+        except Exception as ex:
+            logger.exception(ex)
+
+    def send_event_not_in_zone(self,detections, key):
+        for zone_id, zone in self.zones_cache.items():
+            if zone_id == 0 and key == "fall":
+                zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
+                zone_has_motion = False
+                # center of body inside zone_poly_expanded -> zone has detection
+                for bb in detections:
+                    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+                           [bb['bb'][0], bb['bb'][3]]]  # bb thành 4 điểm
+                    if zone_poly.intersects(geometry.Polygon(pts)):
+                        zone_has_motion = True
+
+                try:
+                    # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
+                    if not zone_has_motion:
+                        self.send_passing_events(key)
+
+                    else:  # keep current switch status if detection unstable: <= 33% detection
+                        logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
+                except:
+                    self.hc_connected = False
+            elif zone_id == 1 and key == 'fire':
+                zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
+                zone_has_motion = False
+                # center of body inside zone_poly_expanded -> zone has detection
+                for bb in detections:
+                    # pts = [[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]]]  # bb to 4 points
+                    pts = [[bb['bb'][0], bb['bb'][1]], [bb['bb'][2], bb['bb'][1]], [bb['bb'][2], bb['bb'][3]],
+                           [bb['bb'][0], bb['bb'][3]]]  # bb thành 4 điểm
+                    if zone_poly.intersects(geometry.Polygon(pts)):
+                        zone_has_motion = True
+
+                try:
+                    # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
+                    if not zone_has_motion:
+                        self.send_passing_events(key)
+
+                    else:  # keep current switch status if detection unstable: <= 33% detection
+                        logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
+                except:
+                    self.hc_connected = False
+            else:
+                self.send_passing_events(key)
+
+    def process_frame(self, frame, t0, regs, freeze_state):
+        show = frame.copy()
+
+        detections = self.get_detections(frame, function)
+
+
+        if len(detections):
+            for d in detections:
+                if function == 'fall':
+                    bb = d['bb']
+                    dr.draw_box(show, bb, line1="FALLEN"  if d['is_fallen'] == 1 else None,
+                                color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
+                    if d['is_fallen'] == 1:
+                        self.tracks.append(1)
+                elif function == 'fire':
+                    bb = d['bb']
+                    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+                                color=(0, 0, 255) if d['is_fire'] == 1 else None, simple=True)
+                    if d['is_fire'] == 1:
+                        self.tracks.append(1)
+                else:
+                    if len(d['bbox_human']):
+                        x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
+                        cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
+                        cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
+                        if len(d['bbox_face']):
+                            x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
+                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                            cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                        else:
+                            self.tracks.append(1)
+                        if d['stranger'] == 0:
+                            self.tracks.append(1)
+
+        current_time = time.time()
+        # Default passing to 60s
+        if self.previous_time is None:
+            self.previous_time = current_time
+        elif self.previous_time is not None and current_time - self.previous_time > 7 and sum(self.tracks) >= 30:
+            self.previous_time = current_time
+            self.send_event_not_in_zone(detections= detections ,key = function)
+            self.tracks.clear()
+        return show
+
+    def send_email(key):
+        print("Attempting to send email...")  # Add a print statement to indicate the function is called
+        # Email configuration
+        smtp_server = "smtp.gmail.com"
+        port = 465
+        email = "aiboxmail0@gmail.com"
+
+        sender_email = email
+        receiver_email = "ducphongBKEU@gmail.com"
+
+        message_fall = """
+        Subject: Fall Email
+        """
+        message_fire = """
+        Subject: Fire Email
+        """
+        message_stranger = """
+        Subject: Stranger Email
+        """
+        # Connect to the SMTP server and send the email
+        try:
+            with smtplib.SMTP_SSL(smtp_server, port) as server:
+                # key application 3th
+                server.login(email, "agfb qgra wvrb xpwo")
+                if key == "fall":
+                    server.sendmail(sender_email, receiver_email, message_fall)
+                elif key == "fire":
+                    server.sendmail(sender_email, receiver_email, message_fire)
+                else:
+                    server.sendmail(sender_email, receiver_email, message_stranger)
+
+            print("Email sent successfully!")  # Add a print statement to indicate successful email sending
+        except Exception as e:
+            print("Error sending email:", e)  # Add a print statement to print out the error message
+
+    @property
+    def zones(self):
+        # print(self.cam_id)
+        rs = self.conf.get(self.cam_id, {}).get('zone', [])
+        if not isinstance(rs, list):
+            return []
+        else:
+            return rs
+
+    def draw_static_info(self, disp):
+        super(Backend, self).draw_static_info(disp)
+        for zone in self.zones_cache.values():
+            color = dr.RED if zone.get('light') else dr.WHITE
+            dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
+
+    def on_conf_update(self, frame):
+        super(Backend, self).on_conf_update(frame)
+        self.conf['count_margin'] = 0
+        self.conf['stopline_y'] = 0
+        self.conf = read_json_conf()
+        self.set_zone_cache()
+
+    def add_cli_opts(self):
+        super(Backend, self).add_cli_opts()
+        self.parser.add_option('--n_frame', type=int, default=20)
 
 def expand_zone(coords, factor=0.3):
     xs = [i[0] for i in coords]
