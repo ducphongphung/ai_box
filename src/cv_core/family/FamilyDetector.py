@@ -1,11 +1,12 @@
 import sys
-
+import json
 from ultralytics import YOLO
 import cv2
 from src.utils.types_ex import *
 from sklearn.metrics.pairwise import cosine_similarity
 import tensorflow as tf
 import os
+from src.cv_core.family.get_output import ObjPred
 
 output_width = 1200
 output_height = 680
@@ -134,71 +135,74 @@ class FamilyDetector(object):
         results = self.human_detector(frame)
         return results, frame
 
-    def process_frame(self, results, frame):
+
+    def process_frame(self, frame):
+        results, frame = self.humandetect(frame)
         statuses = []
         conf = []
         humans_bbox = []
-        faces_bbox = []
-        # results = self.human_detector(frame)
+
         for result in results:
-            human_bbox = []
-            face_bbox = []
             for bbox in result.boxes:
                 if int(bbox.cls) == 0:
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
-                    # cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-                    # cv2.putText(frame, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
                     human_bbox = [x1, x2, y1, y2]
                     roi = frame[y1:y2, x1:x2]
+
                     # Detect faces using DNN
                     (h, w) = roi.shape[:2]
                     blob = cv2.dnn.blobFromImage(cv2.resize(roi, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
                     self.net.setInput(blob)
                     detections = self.net.forward()
 
+                    best_face = None
+                    best_confidence = 0
+
                     for i in range(detections.shape[2]):
                         confidence = detections[0, 0, i, 2]
-                        if confidence > 0.5:
-                            box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-                            (startX, startY, endX, endY) = box.astype("int")
-                            startX += x1
-                            startY += y1
-                            endX += x1
-                            endY += y1
+                        if confidence > best_confidence:
+                            best_confidence = confidence
+                            best_face = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 
-                            face = frame[startY:endY, startX:endX]
-                            face_bbox=[startX, endX, startY, endY]
-                            # Obtain the face embedding
-                            face_embedding = self.get_face_embedding(face)
+                    if best_face is not None and best_confidence >= 0.5:
+                        (startX, startY, endX, endY) = best_face.astype("int")
+                        startX += x1
+                        startY += y1
+                        endX += x1
+                        endY += y1
 
-                            if face_embedding is not None:
-                                face_embedding = np.array([face_embedding])
-                                similarities = cosine_similarity(face_embedding, self.stored_embeddings)                             
-                                best_match_idx = np.argmax(similarities)
-                                best_match_score = similarities[0, best_match_idx]
-                                # Set a similarity threshold for matching (adjust as needed)
-                                if best_match_score > 0.3:
-                                    # text = f"Known ({(best_match_score+0.2):.2f})"
-                                    # color = (0, 255, 0)
-                                    statuses.append(1)
-                                    conf.append(best_match_score)
-                                    faces_bbox.append(face_bbox)
-                                    humans_bbox.append(human_bbox)
-                                else:
-                                    statuses.append(0)
-                                    conf.append(0)
-                                    faces_bbox.append(face_bbox)
-                                    humans_bbox.append(human_bbox)
-                                # cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
-                                # cv2.putText(frame, text, (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, color, 2)
-                                
-        return conf, statuses, humans_bbox, faces_bbox
+                        face = frame[startY:endY, startX:endX]
+                        face_bbox = [startX, startY, endX, endY]
+
+                        # Obtain the face embedding
+                        face_embedding = self.get_face_embedding(face)
+
+                        if face_embedding is not None:
+                            face_embedding = np.array([face_embedding])
+                            similarities = cosine_similarity(face_embedding, self.stored_embeddings)
+                            best_match_idx = np.argmax(similarities)
+                            best_match_score = similarities[0, best_match_idx]
+
+                            if best_match_score > 0.3:
+                                statuses.append(1)
+                            else:
+                                statuses.append(0)
+
+                            conf.append(best_match_score)
+                            humans_bbox.append({'bbox': human_bbox, 'face_bbox': face_bbox})
+                    else:
+                        conf.append(best_confidence)
+                        statuses.append(0)
+                        humans_bbox.append({'bbox': human_bbox, 'face_bbox': []})
+
+        return conf, statuses, humans_bbox
+
     
     def get_stranger(self, frame):
-        results, frame = self.humandetect(frame)
-        conf, statuses, humans_bbox, faces_bbox = self.process_frame(results, frame)
+        # results, frame = self.humandetect(frame)
+        conf, statuses, humans_bbox = self.process_frame(frame)
         obj_dets = []
-        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, faces_bbox):
+        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, humans_bbox['faces_bbox']):
             obj_dets.append(FamilyDet(bbox_human=human_bb,bbox_face=face_bb, confidence = cf, stranger=status))
         return FamilyDets(obj_dets)
 

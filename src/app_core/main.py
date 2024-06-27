@@ -3,7 +3,6 @@ from flask import Flask, render_template, Response, request, redirect, url_for, 
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import sys
-import pyautogui
 # Change the path to folder ai_box
 sys.path.append('/home/quangthangggg/Documents/ai-box2/ai_box')
 from src.app_core.apps import VideoMonitorApp
@@ -11,7 +10,7 @@ from src.app_core.controller_utils import *
 from src.app_core.conf import *
 from src.utils.common import *
 from src.cv_core.family.FamilyDetector import FamilyDetector
-
+from src.cv_core.family.get_output import ObjPred
 import traceback
 import os
 import cv2
@@ -198,8 +197,8 @@ def gen_frames():  # generate frame by frame from camera
         if success:
             if face:
                 frame, results = demo(frame)
-                for result in results:
-                    print(result.boxes)
+                # for result in results:
+                    # print(result.boxes)
                 frame = draw_bounding_boxes(frame, results)
             if capture:
                 capture = 0
@@ -274,12 +273,11 @@ def zone():
 @app.route('/draw_zone', methods=['GET', 'POST'])
 def draw_zone():
     if request.method == 'GET':
-        window_width = 1480
-        window_height = 830
+        window_width = 1280
+        window_height = 720
         global points
         global list_point
         list_point = {}
-
         file_path = 'setup/sc/source/camera_zone.json'
 
         try:
@@ -301,7 +299,7 @@ def draw_zone():
 
                 frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
                 frame_resized = cv2.resize(frame, (window_width, window_height))
-
+                json_data = []
                 for zone_type in ['zone_fall', 'zone_fire', 'zone_stranger']:
                     points = []
 
@@ -335,20 +333,25 @@ def draw_zone():
                     data_json['zone_name'] = zone_type
                     data_json['coords'] = points
                     if zone_type == 'zone_fall':
+                        data_json['zone_id'] = 0
                         data_json['zone_attributes'] = {'163':0, '164':1, '165':0}
                     elif zone_type == 'zone_fire':
+                        data_json['zone_id'] = 1
                         data_json['zone_attributes'] = {'163':1, '164':0, '165':0}
                     elif zone_type == 'zone_stranger':
+                        data_json['zone_id'] = 2
                         data_json['zone_attributes'] = {'163':0, '164':0, '165':1}
-                    data[id_cam]['zone'].append(data_json)
+                    if len(points) == 4:
+                        json_data.append(data_json)
                     # Sau khi hoàn tất việc vẽ các vùng cho một loại, đóng cửa sổ
                     cv2.destroyAllWindows()
 
             # Lưu lại toàn bộ dữ liệu JSON sau khi hoàn thành
+            data[id_cam]['zone'] = (json_data)
             with open(file_path, 'w') as file:
                 json.dump(data, file, indent=4)
 
-            return jsonify(data)
+            return redirect(url_for('live'))
         except Exception as e:
             print("An error occurred:", str(e))
             print(traceback.format_exc())
@@ -418,6 +421,7 @@ class Backend(VideoMonitorApp):
         return rs
 
     def get_detections(self, frame):
+        # print(np.shape(frame))
         detections = []
         reg = None
         try:
@@ -433,7 +437,7 @@ class Backend(VideoMonitorApp):
         except requests.exceptions.ConnectionError:
             logger.error("Cannot connect to inference service")
         if reg:
-            print(reg)
+            # print(reg)
             detections = reg['detections']
 
         return detections
@@ -467,29 +471,36 @@ class Backend(VideoMonitorApp):
             self.send_fall_events(detections)
         except Exception as ex:
             logger.exception(ex)
+    # def demo(frame):
+    #     global model
+    #     results = model.predict(frame)
+    #     return frame, results   
+
 
 # Sửa hàm process ở đây, hàm này sẽ hiển thị kết quả ra màn hình
-    def process_frame(self, frame, t0, regs, freeze_state):
-        show = frame.copy()
+    def process_frame(self, show, t0, regs, freeze_state):
+        # show = frame.copy()
 
-        detections = self.get_detections(frame)
-
-        print(detections)
+        detections = self.get_detections(show)
 
         if len(detections):
             for d in detections:
-                if len(d['bbox_human']):
-                    x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
-                    cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
-                    cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
-                    if len(d['bbox_face']):
-                        x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
+                if len(d['bbox_human']) > 0:
+                    x1, x2, y1, y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
+                    # Draw human bounding box and label
+                    cv2.rectangle(show, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                    cv2.putText(show, 'person', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                    
+                    if d['bbox_face'] != []:
+                        a1, a2, b1, b2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
                         if d['stranger'] == 1:
-                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                            cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                            # Draw known face bounding box and label
+                            cv2.rectangle(show, (a1, b1), (a2, b2), (0, 255, 0), 2)
+                            cv2.putText(show, 'Known', (a1, b1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                         else:
-                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 0, 255), 2)
-                            cv2.putText(show, 'Unknown', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                            # Draw unknown face bounding box and label
+                            cv2.rectangle(show, (a1, b1), (a2, b2), (0, 0, 255), 2)
+                            cv2.putText(show, 'Unknown', (a1, b1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                             self.tracks.append(1)
                     else:
                         self.tracks.append(1)
@@ -527,7 +538,7 @@ class Backend(VideoMonitorApp):
         self.conf['count_margin'] = 0
         self.conf['stopline_y'] = 0
         self.conf = read_json_conf()
-        # self.set_zone_cache()
+        self.set_zone_cache()
 
     def add_cli_opts(self):
         super(Backend, self).add_cli_opts()

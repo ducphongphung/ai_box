@@ -3,7 +3,7 @@ import time
 from src.global_def import *
 from src.app_core.cameras import FrameGrabber
 from src.app_core.loggers import VideoLogger
-
+from src.config.global_cfg import *
 from threading import Thread
 from flask import request
 import os
@@ -64,7 +64,7 @@ class AppBase(object):
         conf_json = request.values.get('conf_json', '')
         if conf_url == self.conf_url and \
                 os.path.exists(conf_url) and \
-                conf_url.startswith('/sc/sources'):
+                conf_url.startswith(SYS_PATH):
             if not conf_json:
                 with open(conf_url, 'r') as f:
                     conf_json = f.read()
@@ -106,7 +106,7 @@ class AppBase(object):
         conf_json = conf_json_zone
         if conf_url == self.conf_url and \
                 os.path.exists(conf_url) and \
-                conf_url.startswith('/sc/sources'):
+                conf_url.startswith(SYS_PATH):
             if not conf_json:
                 with open(conf_url, 'r') as f:
                     conf_json = f.read()
@@ -144,7 +144,7 @@ class AppBase(object):
                 json_str = urllib.urlopen(json_url).read()
                 self.conf = json.loads(json_str)
             else:
-                if json_url.startswith('/sc/sources'):
+                if json_url.startswith(SYS_PATH):
                     if os.path.isfile(json_url):
                         with open(json_url) as f:
                             self.conf = json.load(f)
@@ -213,7 +213,7 @@ class AppBase(object):
 
     def resume(self):
         if not self.input_url:
-            file = '/sc/{}.json'.format(self.port)
+            file = '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
             states = {}
             try:
                 if os.path.isfile(file):

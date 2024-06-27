@@ -1,0 +1,5957 @@
+[
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            510,
+            388,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            665,
+            1075,
+            315,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            115,
+            499,
+            387,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35198137164115906,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            657,
+            1073,
+            272,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            115,
+            500,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.30367982387542725,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            664,
+            1083,
+            265,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            120,
+            517,
+            388,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3495800495147705,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            666,
+            1078,
+            262,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.37411588430404663,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            669,
+            962,
+            268,
+            718
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            110,
+            514,
+            387,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            111,
+            513,
+            382,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            514,
+            386,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            512,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            513,
+            386,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            513,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            512,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5123848915100098,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            648,
+            1044,
+            274,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            512,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.42211297154426575,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            649,
+            1047,
+            271,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            513,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3938218057155609,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            652,
+            1044,
+            271,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5833391547203064,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5869815349578857,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5913581848144531,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            111,
+            511,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3338669240474701,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            512,
+            386,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            510,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            511,
+            387,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5199320316314697,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            112,
+            511,
+            387,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5665537118911743,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            113,
+            511,
+            387,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            115,
+            514,
+            386,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            294,
+            714,
+            301,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.31263047456741333,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            282,
+            714,
+            157,
+            711
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            256,
+            1037,
+            160,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.48127099871635437,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            769,
+            1053,
+            303,
+            661
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3327280282974243,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            279,
+            718,
+            150,
+            711
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5909874439239502,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            701,
+            500,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3500761389732361,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            701,
+            500,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.47053849697113037,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            885,
+            1015,
+            620,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5012980699539185,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            487,
+            713,
+            515,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5677456855773926,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            882,
+            1015,
+            618,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5691295266151428,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            487,
+            712,
+            517,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3491405248641968,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            487,
+            712,
+            517,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5453360080718994,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            882,
+            1015,
+            618,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4605928659439087,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            466,
+            687,
+            503,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.37910693883895874,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            466,
+            687,
+            503,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6178646087646484,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            463,
+            683,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.42485731840133667,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            463,
+            683,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6563814282417297,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            456,
+            681,
+            503,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4167453944683075,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            456,
+            681,
+            503,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6514854431152344,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            681,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.40277302265167236,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            681,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.539222776889801,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            682,
+            506,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4171386659145355,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            682,
+            506,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5999149084091187,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            683,
+            507,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3873426914215088,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            683,
+            507,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6697744131088257,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            460,
+            685,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3399827778339386,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            460,
+            685,
+            508,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4461021423339844,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            468,
+            683,
+            499,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3815349340438843,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            468,
+            683,
+            499,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.49450787901878357,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            460,
+            690,
+            488,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            311,
+            712,
+            205,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.45356613397598267,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            769,
+            1053,
+            362,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.33334460854530334,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            768,
+            1053,
+            362,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35512953996658325,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            715,
+            209,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3628798723220825,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            769,
+            1053,
+            362,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3767169713973999,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            306,
+            718,
+            212,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            769,
+            1054,
+            361,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3607369065284729,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            716,
+            212,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            769,
+            1053,
+            361,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.39289748668670654,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            304,
+            719,
+            212,
+            715
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            768,
+            1056,
+            357,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36712443828582764,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            723,
+            208,
+            716
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3841593563556671,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            770,
+            1056,
+            355,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35355067253112793,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            306,
+            723,
+            210,
+            716
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            727,
+            1051,
+            350,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3632768988609314,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            718,
+            209,
+            715
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.313540518283844,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            0,
+            706,
+            0,
+            713
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            695,
+            1046,
+            348,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.38855254650115967,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            308,
+            731,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            664,
+            1047,
+            352,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3684656620025635,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            308,
+            734,
+            207,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            372,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.34076642990112305,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            307,
+            728,
+            208,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            373,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3348402976989746,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            726,
+            208,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3270123600959778,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            0,
+            706,
+            1,
+            712
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            639,
+            1047,
+            373,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36862367391586304,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            729,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            372,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3555150032043457,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            309,
+            727,
+            208,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            640,
+            1048,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.31275951862335205,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            309,
+            726,
+            210,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.34631508588790894,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            309,
+            727,
+            210,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            642,
+            1045,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36202722787857056,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            307,
+            725,
+            210,
+            713
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1046,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3812938928604126,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            726,
+            211,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1046,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36926037073135376,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            729,
+            211,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            642,
+            1045,
+            375,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3967556953430176,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            307,
+            729,
+            210,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            375,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3699968159198761,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            307,
+            728,
+            210,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            642,
+            1045,
+            375,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3575389087200165,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            725,
+            210,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1046,
+            375,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35079526901245117,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            307,
+            726,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            641,
+            1045,
+            375,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.347763329744339,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            306,
+            725,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            642,
+            1047,
+            371,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.37210386991500854,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            309,
+            725,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            642,
+            1052,
+            369,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3540882468223572,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            725,
+            209,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            643,
+            1051,
+            368,
+            713
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3918946385383606,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            311,
+            723,
+            211,
+            714
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            643,
+            1048,
+            368,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3663116693496704,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            310,
+            725,
+            213,
+            714
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3894387483596802,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            451,
+            683,
+            465,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3329019248485565,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            451,
+            683,
+            465,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5463058352470398,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            682,
+            830,
+            619,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            682,
+            830,
+            619,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.54478919506073,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            688,
+            836,
+            615,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            688,
+            836,
+            615,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.42010653018951416,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            691,
+            468,
+            718
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            691,
+            468,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3270159065723419,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            338,
+            691,
+            467,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            338,
+            691,
+            467,
+            717
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            688,
+            989,
+            616,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.45942479372024536,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            454,
+            685,
+            473,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            454,
+            685,
+            473,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            690,
+            952,
+            613,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            447,
+            668,
+            472,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3166496455669403,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            447,
+            668,
+            472,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5251495838165283,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            696,
+            930,
+            622,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5566069483757019,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            696,
+            850,
+            620,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            696,
+            850,
+            620,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.37854039669036865,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            452,
+            671,
+            479,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3282785415649414,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            452,
+            671,
+            479,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.536821722984314,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            702,
+            917,
+            614,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5738252401351929,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            700,
+            914,
+            612,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.38955992460250854,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            454,
+            673,
+            477,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            454,
+            673,
+            477,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4318183660507202,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            701,
+            850,
+            610,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.40306228399276733,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            458,
+            683,
+            481,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            458,
+            683,
+            481,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4133526086807251,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            683,
+            477,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            457,
+            683,
+            477,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.45109274983406067,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            452,
+            683,
+            472,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3478001654148102,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            452,
+            683,
+            472,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5786617398262024,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            751,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6008664965629578,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            756,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.548916220664978,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5230079293251038,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6087203621864319,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6556925773620605,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6015298366546631,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6296040415763855,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            753,
+            533,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6400039196014404,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            753,
+            533,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6251317262649536,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            754,
+            533,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6648467779159546,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6426767110824585,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6321459412574768,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6567196846008301,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6753515005111694,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6428928971290588,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6272208094596863,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            535,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6537999510765076,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6373538374900818,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6650870442390442,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6423613429069519,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.674432635307312,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6590089201927185,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6615850925445557,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.64927077293396,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6343636512756348,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6251086592674255,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            749,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6094652414321899,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            748,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6025412678718567,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            501,
+            748,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.572917103767395,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            748,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5088819265365601,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            746,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6909196376800537,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7604342699050903,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            754,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7436791062355042,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7448405027389526,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7566537857055664,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7356330156326294,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7120299339294434,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            753,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7209224700927734,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7237884998321533,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6900103092193604,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            752,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7208164930343628,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            750,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7189604043960571,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            750,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6238287687301636,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            749,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6556978821754456,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            750,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4268077611923218,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            750,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6935437917709351,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            749,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7147975564002991,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            751,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7412657737731934,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            751,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6964597105979919,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            751,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.715181291103363,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            751,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7173791527748108,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            750,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.7068361043930054,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            750,
+            535,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6771653890609741,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            750,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6243923902511597,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            751,
+            534,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3404630422592163,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            711,
+            536,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3444138467311859,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            470,
+            704,
+            536,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4340018332004547,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            465,
+            698,
+            535,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4678140878677368,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            464,
+            697,
+            533,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.39833569526672363,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            465,
+            698,
+            536,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.503899872303009,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            712,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.41903671622276306,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            471,
+            709,
+            534,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4963739812374115,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            741,
+            542,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4602479338645935,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            741,
+            545,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4523273706436157,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            740,
+            545,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.646318256855011,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            744,
+            545,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3518993854522705,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            506,
+            747,
+            548,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4575173258781433,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            505,
+            744,
+            547,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5451254844665527,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            504,
+            743,
+            547,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6509367227554321,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            741,
+            546,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6051247715950012,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            742,
+            546,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5039315223693848,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            742,
+            547,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5951272249221802,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            503,
+            743,
+            547,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5405153036117554,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            502,
+            742,
+            546,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4369997978210449,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            501,
+            741,
+            546,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5622978210449219,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            501,
+            739,
+            547,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4726989269256592,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            333,
+            541,
+            600,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5187615156173706,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            321,
+            528,
+            598,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3438278138637543,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            301,
+            512,
+            584,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4727456867694855,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            301,
+            511,
+            584,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.39397820830345154,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            303,
+            512,
+            584,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3862943649291992,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            304,
+            514,
+            584,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4012458622455597,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            305,
+            513,
+            584,
+            718
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            607,
+            779,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            608,
+            781,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.39159470796585083,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            610,
+            783,
+            637,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4289524555206299,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            611,
+            784,
+            636,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36716145277023315,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            609,
+            781,
+            637,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3593931794166565,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            608,
+            780,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3581245541572571,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            609,
+            780,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3176923990249634,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            608,
+            780,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3510017395019531,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            608,
+            779,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            608,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3809323310852051,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            637,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.34433868527412415,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            637,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.30066752433776855,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            607,
+            778,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.31455129384994507,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            607,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.30193573236465454,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3019712567329407,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            606,
+            778,
+            639,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            604,
+            778,
+            638,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6164574027061462,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            469,
+            754,
+            514,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.33833715319633484,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            468,
+            919,
+            515,
+            717
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.41716423630714417,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            467,
+            924,
+            516,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.585970401763916,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            470,
+            760,
+            515,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4188438653945923,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            468,
+            924,
+            515,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5550969839096069,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            469,
+            760,
+            515,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.43826934695243835,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            922,
+            517,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5436585545539856,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            475,
+            756,
+            515,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4342130422592163,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            474,
+            922,
+            518,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5363655090332031,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            474,
+            922,
+            518,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.45928531885147095,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            472,
+            748,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4118075966835022,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            472,
+            748,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.441425085067749,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            474,
+            921,
+            519,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5047207474708557,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            749,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3935939371585846,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            749,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4561704397201538,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            747,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3778139054775238,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            747,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4090253412723541,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            475,
+            921,
+            518,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.46099454164505005,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            745,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4045502245426178,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            473,
+            745,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.42079079151153564,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            921,
+            517,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.608576238155365,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            475,
+            751,
+            518,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3760359287261963,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            921,
+            520,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4149295687675476,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            475,
+            748,
+            518,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.368204265832901,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            482,
+            923,
+            520,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4425579309463501,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            482,
+            923,
+            520,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.41549059748649597,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            751,
+            518,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3705269992351532,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            482,
+            922,
+            521,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4679543972015381,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3610166311264038,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            922,
+            521,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3700314462184906,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            923,
+            521,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5271396040916443,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            518,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4778703451156616,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            746,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.32794100046157837,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            746,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35242563486099243,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            921,
+            522,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.40644049644470215,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            921,
+            522,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5081024169921875,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            750,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4238812327384949,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            479,
+            921,
+            521,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5192185044288635,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            754,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.30832991003990173,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            479,
+            921,
+            520,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5077621936798096,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            518,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.35354870557785034,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            479,
+            921,
+            521,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6085284948348999,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            920,
+            521,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5352659225463867,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            755,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.353310763835907,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            755,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5836738348007202,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            754,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            754,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.31028953194618225,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            920,
+            522,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6166941523551941,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            752,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3448401689529419,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            752,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36230382323265076,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            920,
+            522,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5302267670631409,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            920,
+            522,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5749775171279907,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            749,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4036707580089569,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            923,
+            522,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6198040843009949,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            754,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.36630260944366455,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            754,
+            520,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3403092622756958,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            918,
+            523,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.30734577775001526,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            921,
+            522,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5695556998252869,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            921,
+            522,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5295853614807129,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.42356979846954346,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            923,
+            522,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.533928394317627,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            481,
+            923,
+            522,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5643942356109619,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3873800039291382,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            477,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5758029222488403,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.40682581067085266,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            476,
+            752,
+            519,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.34106767177581787,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            923,
+            522,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5384400486946106,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            480,
+            923,
+            522,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6394721269607544,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            474,
+            747,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.38629716634750366,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            474,
+            747,
+            516,
+            720
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4227026700973511,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            401,
+            626,
+            511,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            401,
+            626,
+            511,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4558902382850647,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            357,
+            565,
+            542,
+            718
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            357,
+            565,
+            542,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4430023431777954,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            569,
+            550,
+            718
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            569,
+            550,
+            718
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5134081840515137,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            365,
+            569,
+            549,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            365,
+            569,
+            549,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5512927770614624,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            364,
+            564,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.31478849053382874,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            364,
+            564,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5524883270263672,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            367,
+            570,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            367,
+            570,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6069944500923157,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            569,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            569,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.613029956817627,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            367,
+            570,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            367,
+            570,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6563296318054199,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            571,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            571,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6506811380386353,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            570,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            570,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6186538934707642,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            572,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            572,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6316605806350708,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            572,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            572,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6412030458450317,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            569,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3352920711040497,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            569,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.678604781627655,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            569,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            569,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5621197819709778,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            568,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            568,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.574778139591217,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            570,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            570,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5918699502944946,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            371,
+            577,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            371,
+            577,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.571955680847168,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            575,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            575,
+            554,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6302855014801025,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            371,
+            576,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            371,
+            576,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6595522165298462,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            574,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            574,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6378966569900513,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            573,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            573,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6101428270339966,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            573,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            573,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6225264072418213,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            575,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            575,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.6166635751724243,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            572,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            572,
+            552,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.49862080812454224,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            582,
+            549,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            582,
+            549,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5792413353919983,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            580,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3028283715248108,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            580,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5838198661804199,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            579,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            579,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.39705702662467957,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            574,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            368,
+            574,
+            553,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.3682430386543274,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            580,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            580,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5362740159034729,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            578,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            578,
+            551,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.5663870573043823,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            579,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            369,
+            579,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Known",
+        "confidence": 0.4694584012031555,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            580,
+            550,
+            719
+        ]
+    },
+    {
+        "label": "Unknown",
+        "confidence": 0.0,
+        "color": [
+            0,
+            0,
+            255
+        ],
+        "rectangle": [
+            370,
+            580,
+            550,
+            719
+        ]
+    }
+]

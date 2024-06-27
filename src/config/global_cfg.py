@@ -10,6 +10,7 @@ GESTURE_DET_WINDOW_SIZE = 9
 FACE_GESTURE_DET_WINDOW_SIZE = 9
 FALL_DET_WINDOW_SIZE = 64
 FIRE_DET_WINDOW_SIZE = 64
+SYS_PATH= "/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/source"
 
 WEBAPP_CFG = {
     'BOOKMARKS': {
