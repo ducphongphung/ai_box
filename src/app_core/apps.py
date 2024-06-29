@@ -142,6 +142,7 @@ class AppBase(object):
         try:
             if json_url.startswith('http'):
                 json_str = urllib.urlopen(json_url).read()
+                print(json_str)
                 self.conf = json.loads(json_str)
             else:
                 if json_url.startswith(SYS_PATH):
@@ -199,8 +200,7 @@ class AppBase(object):
             self.hc_next_retry = MAX_INT
 
     def _save_states(self):
-        # file = '/sc/{}.json'.format(self.port)
-        file = '/sc/8081.json'
+        file = 'C:\\Users\ducph\PycharmProjects\\ai_box\setup\sc\8081.json'
         with open(file, 'w') as f:
             json.dump({
                 'input_url': self.input_url,
@@ -287,7 +287,7 @@ class VideoMonitorApp(AppBase):
             self.cam_ip, self.cam_port = ut.to_ip_port(self.input_url)
 
     # region virtual methods
-    # ==========================================================================
+
     def _init(self):
         if self.video_logger:
             self.video_logger.stop()
@@ -329,7 +329,6 @@ class VideoMonitorApp(AppBase):
         self.roi = Roi(tl=(self.left, self.stopline_y - self.count_margin),
                        br=(self.right, self.stopline_y + self.count_margin))
 
-    # ==========================================================================
     # endregion
 
     @property

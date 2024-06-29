@@ -11,10 +11,17 @@
     <!-- Header Navbar: style can be found in header.less -->
         <div class="action-menu">
             <div class="item" onclick="window.location.href='add-member'">Thêm thành viên</div>
-            <div class="item" onclick="window.location.href='model'">Phát hiện người lạ</div>
-            <div class="item" onclick="window.location.href='model'">Phát hiện khói cháy</div>
-            <div class="item" onclick="window.location.href='live'">Phát hiện người ngã</div>
-            <div class="item" onclick="window.location.href='draw_zone'">Vẽ zone</div>
+            <form class="item" action="{{ url_for('set_stranger') }}" method="POST" style="display:inline;">
+                <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    Phát hiện người lạ</button>
+            <form class="item" action="{{ url_for('set_fire') }}" method="POST" style="display:inline;">
+                <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    Phát hiện khói cháy</button>
+            </form>
+            <form class="item" action="{{ url_for('set_fall') }}" method="POST" style="display:inline;">
+                <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    Phát hiện người ngã</button>
+            </form>
         </div>
     </header>
 {% endblock %}
@@ -74,3 +81,4 @@
         </strong> All rights reserved.
     </footer>
 {% endblock %}
+

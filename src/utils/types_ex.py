@@ -324,7 +324,7 @@ class FallDet(ObjDet):
             norm=norm,
             tag=tag,
             landmarks=landmarks,
-            obj_class='human',
+            obj_class='fall',
             confidence=confidence,
         )
         self.is_fallen = is_fallen
@@ -348,6 +348,18 @@ class FallDets(ObjDets):
         super().__init__(fallDets)
         self.fall_dets = fallDets
 
+class FireDet(ObjDet):
+    def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, is_fire=0, confidence=1.):
+        super().__init__(
+            bb,
+            crop=crop,
+            norm=norm,
+            tag=tag,
+            landmarks=landmarks,
+            obj_class='fire',
+            confidence=confidence,
+        )
+        self.is_fire = is_fire
 # Lưu các thuộc tính của kết quả cần dùng
 class FamilyDet(ObjDet):
     def __init__(self, bbox_human, bbox_face, stranger, confidence):
@@ -383,6 +395,59 @@ class FamilyDets(ObjDets):
         self.family_dets = familyDets
 
 
+    def to_json(self):
+        final = {}
+        if isinstance(self.tag, dict):
+            final = self.tag
+        if isinstance(self.bb, np.ndarray):
+            final['bb'] = self.bb.astype(int).tolist()
+        else:
+            final['bb'] = [int(e) for e in self.bb]
+        final['obj_class'] = self.obj_class
+        final['is_fire'] = self.is_fire
+        final['confidence'] = float(self.confidence)
+        return final
+
+class FireDets(ObjDets):
+    def __init__(self, fireDets):
+        super().__init__(fireDets)
+        self.fire_dets = fireDets
+
+# FamilyDet Class : lưu output
+class FamilyDet(ObjDet):
+    def __init__(self, bbox_human, bbox_face, stranger, confidence):
+        # super().__init__(
+        #     confidence=confidence,
+        # )
+        self.bbox_human = bbox_human,
+        self.bbox_face = bbox_face,
+        self.confidence = confidence,
+        self.stranger = stranger
+
+    def to_json(self):
+        # print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+        # print(self.confidence[0])
+        final = {}
+        # if isinstance(self.bb, np.ndarray):
+        #     final['bbox_human'] = self.bbox_human.astype(int).tolist()
+        # else:
+        #     final['bbox_human'] = [int(e) for e in self.bb]
+        final = {
+            'bbox_human': [int(e) for e in self.bbox_human[0]],
+            'bbox_face': [int(e) for e in self.bbox_face[0]],
+            'stranger': self.stranger,
+            'confidence': float(self.confidence[0]),
+        }
+        return final
+
+
+
+class FamilyDets(ObjDets):
+    def __init__(self, familyDets):
+        super().__init__(familyDets)
+        self.family_dets = familyDets
+
+######################################################################
 class HandDet(ObjDet):
     def __init__(self, bb, crop=None, norm=None, tag=None, landmarks=None, gesture=0, confidence=1.):
         super().__init__(

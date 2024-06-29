@@ -1,0 +1,179 @@
+2024-06-26 01:44:20,259 ERROR conf file must be in /sc/sources
+2024-06-26 01:56:43,256 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-26 01:56:43,283 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 436, in live
+    if function == 'fall':
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 424, in render_live
+    self.send_fall_passing_events(detections, frame= image)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\live.html", line 1, in top-level template code
+    {% extends "layout_menu.html" %}
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\layout_menu.html", line 3, in top-level template code
+    {% set avantar_path = 'dist/img/avatar' + config.ADMIN_AVATAR + '.png' %}
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\layout.html", line 44, in top-level template code
+    {% block main_header %}{% endblock %}
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\templates\layout_menu.html", line 15, in block 'main_header'
+    <form class="item" action="{{ url_for('set_fire') }}" method="POST" style="display:inline;">
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\flask\app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "C:\Users\ducph\PycharmProjects\aibox\venv\lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'set_fire'. Did you mean 'video_feed' instead?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-26 02:02:20,611 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:42:05,300 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:49:30,283 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:50:13,888 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:53:25,421 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:54:45,475 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:55:13,341 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:55:27,511 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:56:17,921 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 09:56:17,956 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 09:57:40,331 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 09:59:28,845 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 09:59:37,748 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 09:59:59,925 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:49,260 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:49,814 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:50,371 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:50,930 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:51,483 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 10:00:52,036 ERROR 'is_fire'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 445, in run
+    show = self.process_frame(frame, t0, regs, freeze_state=not has_motion)
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 444, in process_frame
+    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+KeyError: 'is_fire'
+2024-06-27 21:42:52,387 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-27 23:56:34,265 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-28 02:04:24,548 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
