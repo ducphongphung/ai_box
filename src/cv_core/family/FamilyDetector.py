@@ -139,13 +139,18 @@ class FamilyDetector(object):
         results, frame = self.humandetect(frame)
         statuses = []
         conf = []
-        humans_bbox = []
+        humans_bbox = {}
+        faces_bbox = []
 
         for result in results:
-            for bbox in result.boxes:
-                if int(bbox.cls) == 0:
+            for bbox in set(result.boxes):
+                if int(bbox.cls) == 0:  # Process only human bounding boxes
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
-                    human_bbox = [x1, x2, y1, y2]
+                    human_bbox = (x1, y1, x2, y2)  # Use (x1, y1, x2, y2) tuple for dictionary key
+
+                    if human_bbox in humans_bbox:
+                        continue  # Skip if this human_bbox is already processed
+
                     roi = frame[y1:y2, x1:x2]
 
                     # Detect faces using DNN
@@ -154,14 +159,17 @@ class FamilyDetector(object):
                     self.net.setInput(blob)
                     detections = self.net.forward()
 
-                    best_face = None
-                    best_confidence = 0
-
+                    set_conf = set()
                     for i in range(detections.shape[2]):
-                        confidence = detections[0, 0, i, 2]
-                        if confidence > best_confidence:
-                            best_confidence = confidence
-                            best_face = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+                        set_conf.add(detections[0, 0, i, 2])
+                    for confidence in set_conf:
+                        if confidence > 0.5:
+                            box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+                            (startX, startY, endX, endY) = box.astype("int")
+                            startX += x1
+                            startY += y1
+                            endX += x1
+                            endY += y1
 
                     if best_face is not None and best_confidence >= 0.5:
                         (startX, startY, endX, endY) = best_face.astype("int")
@@ -201,9 +209,11 @@ class FamilyDetector(object):
         # results, frame = self.humandetect(frame)
         conf, statuses, humans_bbox = self.process_frame(frame)
         obj_dets = []
-        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, humans_bbox['faces_bbox']):
-            obj_dets.append(FamilyDet(bbox_human=human_bb,bbox_face=face_bb, confidence = cf, stranger=status))
+        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, faces_bbox):
+            obj_dets.append(FamilyDet(bbox_human=human_bb, bbox_face=face_bb, confidence=cf, stranger=status))
         return FamilyDets(obj_dets)
+
+
 
 if __name__ == "__main__":
     fall_detector = FamilyDetector()
