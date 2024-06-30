@@ -1,6 +1,6 @@
 {
-    "input_url": "rtsp://admin:abcd1234@192.168.1.12:554/Streaming/Channels/1",
-    "conf_url": "/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/source/camera_zone.json",
+    "input_url": "rtsp://admin:Facenet2022@192.168.1.7:554/Streaming/Channels/101",
+    "conf_url": "/home/quangthangggg/Documents/ai_box/setup/sc/source/camera_zone.json",
     "hc_ip": "",
     "hc_pass": "",
     "hc_mac": "",

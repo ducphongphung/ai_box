@@ -206,6 +206,10 @@ def draw_zone():
                     return "Error: Could not open camera"
 
                 ret, frame = cam.read()
+                window_width = frame.shape[1]
+                window_height = frame.shape[0]
+
+
 
                 if not ret:
                     return "Error: Could not read frame from camera"
@@ -530,11 +534,14 @@ class Backend(VideoMonitorApp):
                     if d['is_fallen'] == 1:
                         self.tracks.append(1)
                 elif function == 'fire':
-                    bb = d['bb']
-                    dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
-                                color=(0, 0, 255) if d['is_fire'] == 1 else None, simple=True)
-                    if d['is_fire'] == 1:
-                        self.tracks.append(1)
+                    try:
+                        bb = d['bb']
+                        dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+                                    color=(0, 0, 255) if d['is_fire'] == 1 else None, simple=True)
+                        if d['is_fire'] == 1:
+                            self.tracks.append(1)
+                    except:
+                        pass
                 else:
                     if len(d['bbox_human']):
                         x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
@@ -542,8 +549,14 @@ class Backend(VideoMonitorApp):
                         cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
                         if len(d['bbox_face']):
                             x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
-                            cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                            cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+                            if d['stranger'] == 1:
+                                cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                                cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                            else:
+                                cv2.rectangle(show, (x1, y1), (x2, y2), (0, 0, 255), 2)
+                                cv2.putText(show, 'Unknown', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                                self.tracks.append(1)
                         else:
                             self.tracks.append(1)
                         if d['stranger'] == 0:
@@ -609,11 +622,13 @@ class Backend(VideoMonitorApp):
             color = dr.RED if zone.get('light') else dr.WHITE
             dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
 
+
     def on_conf_update(self, frame):
         super(Backend, self).on_conf_update(frame)
         self.conf['count_margin'] = 0
         self.conf['stopline_y'] = 0
         self.conf = read_json_conf()
+        self.zones_cache ={}
         self.set_zone_cache()
 
     def add_cli_opts(self):
