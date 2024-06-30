@@ -11,49 +11,22 @@ output_width = 1200
 output_height = 680
 
 
-# class FamilyDetector(object):
-#     def __init__(self):
-#         self.model = self._load_model()
+def calculate_iou(box1, box2):
+    x1, y1, x2, y2 = box1
+    x3, y3, x4, y4 = box2
 
+    xi1 = max(x1, x3)
+    yi1 = max(y1, y3)
+    xi2 = min(x2, x4)
+    yi2 = min(y2, y4)
+    inter_area = max(0, xi2 - xi1) * max(0, yi2 - yi1)
 
-#     def _load_model(self):
-#         # device = "cuda" if torch.cuda.is_available() else "cpu"
-#         model_path = os.path.abspath('models/model8s_50.pt')
-#         model = YOLO( model_path)
-#         return model
+    box1_area = (x2 - x1) * (y2 - y1)
+    box2_area = (x4 - x3) * (y4 - y3)
+    union_area = box1_area + box2_area - inter_area
 
-#     def _detect(self, bgr):
-#         results = self.model.predict(bgr, save=False)
-#         return results
-
-#     def _gen_response(self):
-#         pass
-
-# #add label
-#     def _add_family_label(self, results):
-#         statuses = []
-#         conf = []
-#         for result in results:
-#             for box in result.boxes:
-#                 if box.conf > 0.3 and box.cls == 0:  # Assuming class 0 is 'Fall'
-#                     statuses.append(1)
-#                     conf.append(box.conf)
-#                     # self.fall_count += 1  # Increment fall count
-#                 else:
-#                     conf.append(0)
-#                     statuses.append(0)
-#         return conf, statuses
-
-
-# # Sửa class FamilyDet và FamilyDets
-#     def get_family(self, bgr):
-#         results = self._detect(bgr)
-#         conf, statuses = self._add_family_label(results)
-#         boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
-#         obj_dets = []
-#         for status, cf, box in zip(statuses, conf, boxes):
-#             obj_dets.append(FamilyDet(bb=box, confidence = cf, is_fallen=status))
-#         return FamilyDets(obj_dets)
+    iou = inter_area / union_area
+    return iou
 
 class FamilyDetector(object):
     def __init__(self):
@@ -141,13 +114,19 @@ class FamilyDetector(object):
         faces_bbox = []
 
         for result in results:
-            for bbox in set(result.boxes):
+            for bbox in result.boxes:
                 if int(bbox.cls) == 0:  # Process only human bounding boxes
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
                     human_bbox = (x1, y1, x2, y2)  # Use (x1, y1, x2, y2) tuple for dictionary key
 
-                    if human_bbox in humans_bbox:
-                        continue  # Skip if this human_bbox is already processed
+                    # Skip if this human_bbox is already processed or overlaps significantly with an existing bbox
+                    skip = False
+                    for existing_bbox in humans_bbox:
+                        if calculate_iou(human_bbox, existing_bbox) > 0.8:
+                            skip = True
+                            break
+                    if skip:
+                        continue
 
                     roi = frame[y1:y2, x1:x2]
 
@@ -156,11 +135,14 @@ class FamilyDetector(object):
                     blob = cv2.dnn.blobFromImage(cv2.resize(roi, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
                     self.net.setInput(blob)
                     detections = self.net.forward()
+                    print(detections)
 
-                    set_conf = set()
+                    face_detected = False  # Flag to check if face has been detected for current human_bbox
                     for i in range(detections.shape[2]):
-                        set_conf.add(detections[0, 0, i, 2])
-                    for confidence in set_conf:
+                        if face_detected:  # If a face has already been detected, break the loop
+                            break
+
+                        confidence = detections[0, 0, i, 2]
                         if confidence > 0.5:
                             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
                             (startX, startY, endX, endY) = box.astype("int")
@@ -179,6 +161,11 @@ class FamilyDetector(object):
                                 similarities = cosine_similarity(face_embedding, self.stored_embeddings)
                                 best_match_idx = np.argmax(similarities)
                                 best_match_score = similarities[0, best_match_idx]
+
+                                # Ensure that each face gets only one label
+                                if face_bbox in faces_bbox:
+                                    continue  # Skip if this face_bbox is already processed
+
                                 if best_match_score > 0.3:
                                     statuses.append(1)
                                     conf.append(best_match_score)
@@ -188,6 +175,7 @@ class FamilyDetector(object):
 
                                 faces_bbox.append(face_bbox)
                                 humans_bbox[human_bbox] = face_bbox  # Store human_bbox with corresponding face_bbox
+                                face_detected = True  # Mark that a face has been detected for this human_bbox
                                 break  # Only take the first detected face for each human_bbox
 
         # Convert humans_bbox dictionary keys to list for returning
@@ -202,6 +190,7 @@ class FamilyDetector(object):
         for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, faces_bbox):
             obj_dets.append(FamilyDet(bbox_human=human_bb, bbox_face=face_bb, confidence=cf, stranger=status))
         return FamilyDets(obj_dets)
+
 
 
 

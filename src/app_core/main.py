@@ -207,8 +207,8 @@ def draw_zone():
                 ret, frame = cam.read()
                 window_width = frame.shape[1]
                 window_height = frame.shape[0]
-                # print(window_width)
-                # print(window_height)
+                print(window_width)
+                print(window_height)
 
 
                 if not ret:
@@ -578,7 +578,7 @@ class Backend(VideoMonitorApp):
                     if d['is_fire'] == 1:
                         self.tracks.append(1)
                 else:
-                    # print(d)
+                    print(d)
                     if len(d['bbox_human'])==4:
                         x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
                         cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
@@ -623,11 +623,13 @@ class Backend(VideoMonitorApp):
             color = dr.RED if zone.get('light') else dr.WHITE
             dr.draw_poly(disp, zone['coords'], zone['zone_name'], color=color)
 
+
     def on_conf_update(self, frame):
         super(Backend, self).on_conf_update(frame)
         self.conf['count_margin'] = 0
         self.conf['stopline_y'] = 0
         self.conf = read_json_conf()
+        self.zones_cache ={}
         self.set_zone_cache()
 
     def add_cli_opts(self):
