@@ -200,7 +200,7 @@ class AppBase(object):
             self.hc_next_retry = MAX_INT
 
     def _save_states(self):
-        file = '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
+        file = '/home/quangthangggg/Documents/ai_box/setup/sc/8081.json'
         with open(file, 'w') as f:
             json.dump({
                 'input_url': self.input_url,
@@ -213,7 +213,7 @@ class AppBase(object):
 
     def resume(self):
         if not self.input_url:
-            file = '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
+            file = '/home/quangthangggg/Documents/ai_box/setup/sc/8081.json'
             states = {}
             try:
                 if os.path.isfile(file):
