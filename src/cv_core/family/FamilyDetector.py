@@ -137,15 +137,18 @@ class FamilyDetector(object):
     def process_frame(self, results, frame):
         statuses = []
         conf = []
-        humans_bbox = []
+        humans_bbox = {}
         faces_bbox = []
 
         for result in results:
-            human_bbox = None
-            for bbox in result.boxes:
-                if int(bbox.cls) == 0:  # Process only if face is not detected for this human_bbox
+            for bbox in set(result.boxes):
+                if int(bbox.cls) == 0:  # Process only human bounding boxes
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
-                    human_bbox = [x1, x2, y1, y2]
+                    human_bbox = (x1, y1, x2, y2)  # Use (x1, y1, x2, y2) tuple for dictionary key
+
+                    if human_bbox in humans_bbox:
+                        continue  # Skip if this human_bbox is already processed
+
                     roi = frame[y1:y2, x1:x2]
 
                     # Detect faces using DNN
@@ -153,9 +156,11 @@ class FamilyDetector(object):
                     blob = cv2.dnn.blobFromImage(cv2.resize(roi, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
                     self.net.setInput(blob)
                     detections = self.net.forward()
-                    print(detections)
+
+                    set_conf = set()
                     for i in range(detections.shape[2]):
-                        confidence = detections[0, 0, i, 2]
+                        set_conf.add(detections[0, 0, i, 2])
+                    for confidence in set_conf:
                         if confidence > 0.5:
                             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
                             (startX, startY, endX, endY) = box.astype("int")
@@ -182,18 +187,23 @@ class FamilyDetector(object):
                                     conf.append(best_match_score)
 
                                 faces_bbox.append(face_bbox)
-                                humans_bbox.append(human_bbox)
+                                humans_bbox[human_bbox] = face_bbox  # Store human_bbox with corresponding face_bbox
+                                break  # Only take the first detected face for each human_bbox
 
+        # Convert humans_bbox dictionary keys to list for returning
+        humans_bbox_list = list(humans_bbox.keys())
 
-        return conf, statuses, humans_bbox, faces_bbox
+        return conf, statuses, humans_bbox_list, faces_bbox
 
     def get_stranger(self, frame):
         results, frame = self.humandetect(frame)
         conf, statuses, humans_bbox, faces_bbox = self.process_frame(results, frame)
         obj_dets = []
         for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, faces_bbox):
-            obj_dets.append(FamilyDet(bbox_human=human_bb,bbox_face=face_bb, confidence = cf, stranger=status))
+            obj_dets.append(FamilyDet(bbox_human=human_bb, bbox_face=face_bb, confidence=cf, stranger=status))
         return FamilyDets(obj_dets)
+
+
 
 if __name__ == "__main__":
     fall_detector = FamilyDetector()
