@@ -13,7 +13,6 @@ from src.app_core.controller_utils import *
 from src.app_core.conf import *
 from src.utils.common import *
 from src.cv_core.family.FamilyDetector import FamilyDetector
-from src.cv_core.family.get_output import ObjPred
 import traceback
 import os
 import cv2
@@ -182,10 +181,6 @@ def add_member():
 
 
 points = []
-
-@app.route('/zone')
-def zone():
-    return render_template('zone.html')
 
 
 @app.route('/draw_zone', methods=['GET', 'POST'])

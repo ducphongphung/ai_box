@@ -6,7 +6,6 @@ from src.utils.types_ex import *
 from sklearn.metrics.pairwise import cosine_similarity
 import tensorflow as tf
 import os
-from src.cv_core.family.get_output import ObjPred
 
 output_width = 1200
 output_height = 680

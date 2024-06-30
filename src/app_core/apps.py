@@ -200,7 +200,7 @@ class AppBase(object):
             self.hc_next_retry = MAX_INT
 
     def _save_states(self):
-        file = 'C:\\Users\ducph\PycharmProjects\\ai_box\setup\sc\8081.json'
+        file = '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
         with open(file, 'w') as f:
             json.dump({
                 'input_url': self.input_url,

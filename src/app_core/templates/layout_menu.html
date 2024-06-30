@@ -6,22 +6,39 @@
     <header class="main-header">
         <!-- Logo -->
         <a href="/index" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+            <img style="width: 60px;height: 60px;" src="../static/images/logo.png" alt=""
+           class="mr-10px">
             <span class=""><b>AI HUB</b></span>
         </a>
     <!-- Header Navbar: style can be found in header.less -->
         <div class="action-menu">
-            <div class="item" onclick="window.location.href='add-member'">Thêm thành viên</div>
+            <div class="item" onclick="window.location.href='add-member'">
+                <img style="width: 20px;height: 20px;" src="../static/images/user-icon.png" alt=""
+           class="mr-10px">
+                Thêm thành viên</div>
             <form class="item" action="{{ url_for('set_stranger') }}" method="POST" style="display:inline;">
                 <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    <img style="width: 20px;height: 20px;" src="../static/images/stranger-icon.png" alt=""
+                        class="mr-10px">
                     Phát hiện người lạ</button>
+            </form>
             <form class="item" action="{{ url_for('set_fire') }}" method="POST" style="display:inline;">
                 <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    <img style="width: 20px;height: 20px;" src="../static/images/fire-icon.png" alt=""
+                        class="mr-10px">
                     Phát hiện khói cháy</button>
             </form>
             <form class="item" action="{{ url_for('set_fall') }}" method="POST" style="display:inline;">
                 <button type="submit" style="width: 100%; text-align: start; border: none; background: none; padding: 0">
+                    <img style="width: 20px;height: 20px;" src="../static/images/fall-icon.png" alt=""
+                        class="mr-10px">
                     Phát hiện người ngã</button>
             </form>
+            <div class="item" onclick="window.location.href='draw_zone'">
+                <img style="width: 20px;height: 20px;" src="../static/images/draw-icon.png" alt=""
+                     class="mr-10px">
+                Vẽ zone </div>
+
         </div>
     </header>
 {% endblock %}
