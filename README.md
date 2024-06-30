@@ -30,6 +30,9 @@ Trong tương lai, chúng tôi sẽ tập trung vào:
 
 ## 6. Hướng dẫn cài đặt và chạy ứng dụng
 
+Sau khi clone xong, vào link sau để tải các model và lưu tại folder `src/app_core/models`:
+[link](https://drive.google.com/drive/u/0/folders/14RuyA-1yU03PNttcuwqj5xs3ojYnVlaQ)
+
 ```bash
 git clone https://github.com/ducphongphung/ai_box.git
 cd ai_box

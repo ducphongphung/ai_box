@@ -6,6 +6,7 @@ from src.utils.types_ex import *
 from sklearn.metrics.pairwise import cosine_similarity
 import tensorflow as tf
 import os
+import time
 
 output_width = 1200
 output_height = 680
@@ -175,7 +176,8 @@ class FamilyDetector(object):
 
                                 faces_bbox.append(face_bbox)
                                 humans_bbox[human_bbox] = face_bbox  # Store human_bbox with corresponding face_bbox
-                                face_detected = True  # Mark that a face has been detected for this human_bbox
+                                face_detected = True 
+                                time.sleep(0.5) # Mark that a face has been detected for this human_bbox
                                 break  # Only take the first detected face for each human_bbox
 
         # Convert humans_bbox dictionary keys to list for returning
