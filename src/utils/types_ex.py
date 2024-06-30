@@ -360,6 +360,19 @@ class FireDet(ObjDet):
             confidence=confidence,
         )
         self.is_fire = is_fire
+
+    def to_json(self):
+        final = {}
+        if isinstance(self.tag, dict):
+            final = self.tag
+        if isinstance(self.bb, np.ndarray):
+            final['bb'] = self.bb.astype(int).tolist()
+        else:
+            final['bb'] = [int(e) for e in self.bb]
+        final['obj_class'] = self.obj_class
+        final['is_fire'] = self.is_fire
+        final['confidence'] = float(self.confidence)
+        return final
 # Lưu các thuộc tính của kết quả cần dùng
 class FamilyDet(ObjDet):
     def __init__(self, bbox_human, bbox_face, stranger, confidence):

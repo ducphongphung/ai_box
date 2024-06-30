@@ -31,10 +31,10 @@ class FireDetector(object):
         conf = []
         for result in results:
             for box in result.boxes:
-                if box.conf > 0.3 and (box.cls == 0 or box.cls == 1):  # Assuming class 0 is 'Fire'
+                if ((box.conf > 0.2) and (int(box.cls) == 0)) or ((box.conf > 0.6) and (int(box.cls) == 2)): 
                     statuses.append(1)
                     conf.append(box.conf)
-                    # self.fall_count += 1  # Increment fire count
+
                 else:
                     conf.append(0)
                     statuses.append(0)

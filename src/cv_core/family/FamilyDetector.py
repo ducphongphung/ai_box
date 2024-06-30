@@ -123,7 +123,7 @@ class FamilyDetector(object):
                     # Skip if this human_bbox is already processed or overlaps significantly with an existing bbox
                     skip = False
                     for existing_bbox in humans_bbox:
-                        if calculate_iou(human_bbox, existing_bbox) > 0.8:
+                        if calculate_iou(human_bbox, existing_bbox) > 0.9:
                             skip = True
                             break
                     if skip:
