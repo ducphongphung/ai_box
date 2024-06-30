@@ -264,3 +264,39 @@ Traceback (most recent call last):
   File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
     version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
 FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-30 11:09:53,860 ERROR conf file must be in /sc/sources
+2024-06-30 11:09:55,633 ERROR conf file must be in /sc/sources
+2024-06-30 11:09:55,634 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 287, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 204, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'
+2024-06-30 11:12:23,443 ERROR conf file must be in /sc/sources
+2024-06-30 11:12:26,663 ERROR conf file must be in /sc/sources
+2024-06-30 11:12:26,664 ERROR [WinError 3] The system cannot find the path specified: '../../data/models/'
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\main.py", line 287, in live
+    err = backend.update_input()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 84, in update_input
+    self._save_states()
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 204, in _save_states
+    with open(file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/quangthangggg/Documents/ai-box2/ai_box/setup/sc/8081.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ducph\PycharmProjects\ai_box\src\app_core\apps.py", line 721, in sys_info
+    version_files = [f for f in os.listdir(PATH_MODEL_DIR) if f.startswith('.')]
+FileNotFoundError: [WinError 3] The system cannot find the path specified: '../../data/models/'

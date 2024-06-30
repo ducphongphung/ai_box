@@ -2604,3 +2604,83 @@
 2024-06-30 11:06:50,321 ERROR missing frame detected
 2024-06-30 11:06:54,549 ERROR consecutive_missing_frames: 91
 2024-06-30 11:06:54,596 ERROR missing frame detected
+2024-06-30 11:09:53,863 INFO FrameGrabber: gracefully stopped: None
+2024-06-30 11:09:53,876 INFO Video source: . Grab fps: 30
+2024-06-30 11:09:53,876 ERROR missing frame detected
+2024-06-30 11:09:58,161 ERROR consecutive_missing_frames: 91
+2024-06-30 11:09:58,209 ERROR missing frame detected
+2024-06-30 11:10:02,503 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:02,552 ERROR missing frame detected
+2024-06-30 11:10:06,836 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:06,882 ERROR missing frame detected
+2024-06-30 11:10:11,151 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:11,198 ERROR missing frame detected
+2024-06-30 11:10:15,440 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:15,487 ERROR missing frame detected
+2024-06-30 11:10:19,713 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:19,759 ERROR missing frame detected
+2024-06-30 11:10:23,995 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:24,040 ERROR missing frame detected
+2024-06-30 11:10:28,288 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:28,334 ERROR missing frame detected
+2024-06-30 11:10:32,564 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:32,610 ERROR missing frame detected
+2024-06-30 11:10:36,850 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:36,898 ERROR missing frame detected
+2024-06-30 11:10:41,133 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:41,180 ERROR missing frame detected
+2024-06-30 11:10:45,415 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:45,464 ERROR missing frame detected
+2024-06-30 11:10:49,682 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:49,729 ERROR missing frame detected
+2024-06-30 11:10:53,962 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:54,009 ERROR missing frame detected
+2024-06-30 11:10:58,231 ERROR consecutive_missing_frames: 91
+2024-06-30 11:10:58,277 ERROR missing frame detected
+2024-06-30 11:11:02,523 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:02,569 ERROR missing frame detected
+2024-06-30 11:11:06,804 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:06,851 ERROR missing frame detected
+2024-06-30 11:11:11,076 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:11,124 ERROR missing frame detected
+2024-06-30 11:11:15,368 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:15,414 ERROR missing frame detected
+2024-06-30 11:11:19,650 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:19,696 ERROR missing frame detected
+2024-06-30 11:11:23,925 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:23,972 ERROR missing frame detected
+2024-06-30 11:11:28,205 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:28,251 ERROR missing frame detected
+2024-06-30 11:11:32,494 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:32,540 ERROR missing frame detected
+2024-06-30 11:11:36,777 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:36,823 ERROR missing frame detected
+2024-06-30 11:11:41,063 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:41,110 ERROR missing frame detected
+2024-06-30 11:11:45,344 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:45,391 ERROR missing frame detected
+2024-06-30 11:11:49,622 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:49,668 ERROR missing frame detected
+2024-06-30 11:11:53,917 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:53,965 ERROR missing frame detected
+2024-06-30 11:11:58,210 ERROR consecutive_missing_frames: 91
+2024-06-30 11:11:58,255 ERROR missing frame detected
+2024-06-30 11:12:02,501 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:02,548 ERROR missing frame detected
+2024-06-30 11:12:06,780 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:06,827 ERROR missing frame detected
+2024-06-30 11:12:11,062 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:11,108 ERROR missing frame detected
+2024-06-30 11:12:23,446 INFO FrameGrabber: gracefully stopped: None
+2024-06-30 11:12:23,459 INFO Video source: . Grab fps: 30
+2024-06-30 11:12:23,460 ERROR missing frame detected
+2024-06-30 11:12:27,716 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:27,763 ERROR missing frame detected
+2024-06-30 11:12:32,005 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:32,051 ERROR missing frame detected
+2024-06-30 11:12:36,291 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:36,337 ERROR missing frame detected
+2024-06-30 11:12:40,579 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:40,626 ERROR missing frame detected
+2024-06-30 11:12:44,868 ERROR consecutive_missing_frames: 91
+2024-06-30 11:12:44,913 ERROR missing frame detected
