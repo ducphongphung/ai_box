@@ -186,8 +186,7 @@ def draw_unicode(img, unicode_text, origin, rgb_color=WHITE, text_size=18, max_w
     pil_im = Image.fromarray(crop)  # opencv Mat -> PIL image
     draw = ImageDraw.Draw(pil_im)
 
-    # g_font = ImageFont.truetype("arial.ttf", 18)
-    g_font = ImageFont.load_default()
+    g_font = ImageFont.truetype("arial.ttf", 18)
 
     # if text_size == 16:
     #     g_font = g_font16
@@ -267,7 +266,6 @@ def draw_aim_box(img, pt1, pt2, color=GREEN):
 
 
 def draw_box(cv_img, bb, line1=None, line2=None, color=None, text_size=30, simple=False, thickness=2):
-
     if len(bb) == 4:
         pt1 = (int(bb[0]), int(bb[1]))
         pt2 = (int(bb[2]), int(bb[3]))
@@ -498,7 +496,6 @@ def draw_poly(cv_img, pts, label, color=RED, text_size=36):
     """
     npts = np.array(pts).astype(int)
     npts = npts.reshape(-1, 2)
-
     if len(npts) == 2:  # is bbox
         draw_box(cv_img, npts, label, None, color, text_size, simple=True)
     else:

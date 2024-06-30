@@ -1,5 +1,5 @@
 import sys
-
+import json
 from ultralytics import YOLO
 import cv2
 from src.utils.types_ex import *
@@ -57,13 +57,13 @@ output_height = 680
 
 class FamilyDetector(object):
     def __init__(self):
-        self.prototxt_path = 'src/app_core/models/deploy.prototxt.txt'
-        self.caffe_model_path = 'src/app_core/models/res10_300x300_ssd_iter_140000.caffemodel'
+        self.prototxt_path = os.path.abspath('models/deploy.prototxt.txt')
+        self.caffe_model_path = os.path.abspath('models/res10_300x300_ssd_iter_140000.caffemodel')
         self.training_data_path = 'src/uploads'
-        self.tflite_model_path = 'src/app_core/models/model.tflite'
+        self.tflite_model_path = os.path.abspath('models/model.tflite')
         self.net = cv2.dnn.readNetFromCaffe(self.prototxt_path, self.caffe_model_path)
-        self.human_detector = YOLO('src/app_core/models/yolov8n.pt')
-        self.stored_embeddings = np.load('src/app_core/models/face_embeddings.npz')['embeddings']
+        self.human_detector = YOLO(os.path.abspath('models/yolov8n.pt'))
+        self.stored_embeddings = np.load(os.path.abspath('models/face_embeddings.npz'))['embeddings']
         # Tải mô hình TFLite
         self.interpreter = tf.lite.Interpreter(model_path=self.tflite_model_path)
         self.interpreter.allocate_tensors()
@@ -126,7 +126,7 @@ class FamilyDetector(object):
         faces_embeddings = np.array(faces_embeddings)
 
         # Lưu các vector nhúng
-        np.savez('src/app_core/models/face_embeddings.npz', embeddings=faces_embeddings)
+        np.savez(os.path.abspath('models/face_embeddings.npz'), embeddings=faces_embeddings)
     
         print(f"Đã lưu vector nhúng từ dữ liệu huấn luyện.")
     
@@ -134,16 +134,16 @@ class FamilyDetector(object):
         results = self.human_detector(frame)
         return results, frame
 
-    def process_frame(self, results, frame):
+
+    def process_frame(self, frame):
+        results, frame = self.humandetect(frame)
         statuses = []
         conf = []
         humans_bbox = []
-        faces_bbox = []
 
         for result in results:
-            human_bbox = None
             for bbox in result.boxes:
-                if int(bbox.cls) == 0:  # Process only if face is not detected for this human_bbox
+                if int(bbox.cls) == 0:
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
                     human_bbox = [x1, x2, y1, y2]
                     roi = frame[y1:y2, x1:x2]
@@ -153,45 +153,55 @@ class FamilyDetector(object):
                     blob = cv2.dnn.blobFromImage(cv2.resize(roi, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
                     self.net.setInput(blob)
                     detections = self.net.forward()
-                    print(detections)
+
+                    best_face = None
+                    best_confidence = 0
+
                     for i in range(detections.shape[2]):
                         confidence = detections[0, 0, i, 2]
-                        if confidence > 0.5:
-                            box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-                            (startX, startY, endX, endY) = box.astype("int")
-                            startX += x1
-                            startY += y1
-                            endX += x1
-                            endY += y1
+                        if confidence > best_confidence:
+                            best_confidence = confidence
+                            best_face = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 
-                            face = frame[startY:endY, startX:endX]
-                            face_bbox = [startX, endX, startY, endY]
-                            # Obtain the face embedding
-                            face_embedding = self.get_face_embedding(face)
+                    if best_face is not None and best_confidence >= 0.5:
+                        (startX, startY, endX, endY) = best_face.astype("int")
+                        startX += x1
+                        startY += y1
+                        endX += x1
+                        endY += y1
 
-                            if face_embedding is not None:
-                                face_embedding = np.array([face_embedding])
-                                similarities = cosine_similarity(face_embedding, self.stored_embeddings)
-                                best_match_idx = np.argmax(similarities)
-                                best_match_score = similarities[0, best_match_idx]
-                                if best_match_score > 0.3:
-                                    statuses.append(1)
-                                    conf.append(best_match_score)
-                                else:
-                                    statuses.append(0)
-                                    conf.append(best_match_score)
+                        face = frame[startY:endY, startX:endX]
+                        face_bbox = [startX, startY, endX, endY]
 
-                                faces_bbox.append(face_bbox)
-                                humans_bbox.append(human_bbox)
+                        # Obtain the face embedding
+                        face_embedding = self.get_face_embedding(face)
 
+                        if face_embedding is not None:
+                            face_embedding = np.array([face_embedding])
+                            similarities = cosine_similarity(face_embedding, self.stored_embeddings)
+                            best_match_idx = np.argmax(similarities)
+                            best_match_score = similarities[0, best_match_idx]
 
-        return conf, statuses, humans_bbox, faces_bbox
+                            if best_match_score > 0.3:
+                                statuses.append(1)
+                            else:
+                                statuses.append(0)
 
+                            conf.append(best_match_score)
+                            humans_bbox.append({'bbox': human_bbox, 'face_bbox': face_bbox})
+                    else:
+                        conf.append(best_confidence)
+                        statuses.append(0)
+                        humans_bbox.append({'bbox': human_bbox, 'face_bbox': []})
+
+        return conf, statuses, humans_bbox
+
+    
     def get_stranger(self, frame):
-        results, frame = self.humandetect(frame)
-        conf, statuses, humans_bbox, faces_bbox = self.process_frame(results, frame)
+        # results, frame = self.humandetect(frame)
+        conf, statuses, humans_bbox = self.process_frame(frame)
         obj_dets = []
-        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, faces_bbox):
+        for status, cf, human_bb, face_bb in zip(statuses, conf, humans_bbox, humans_bbox['faces_bbox']):
             obj_dets.append(FamilyDet(bbox_human=human_bb,bbox_face=face_bb, confidence = cf, stranger=status))
         return FamilyDets(obj_dets)
 

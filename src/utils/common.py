@@ -1403,6 +1403,55 @@ def alert(msg):
     cv2.waitKey(0)
 
 
+def send_email(data, forget=False):
+    def send_email_thread(data):
+        try:
+            toaddrs = data['to_addresses'].split(',')
+            if not toaddrs or len(toaddrs) == 0:
+                logging.error("send_email error: no toaddress")
+                return False
+
+            msg = "\r\n".join([
+                "From: {}".format(data['username']),
+                "To: {}".format(",".join(toaddrs)),
+                "Subject: Automatic Notification (no reply)",
+                "",
+                to_utf8(data['message']),
+            ])
+
+            username = data['username']
+            password = data['password']
+            smtp_server_url = data['smtp_server_url']
+            port = int(data['smtp_server_port'])
+
+            server = None
+            if port == 587:
+                server = smtplib.SMTP(smtp_server_url, port, timeout=15)
+                server.ehlo()
+                server.starttls()
+            elif port == 465:
+                server = smtplib.SMTP_SSL(smtp_server_url, port, timeout=15)
+                server.ehlo()
+
+            if server is None:
+                logging.error("send_email error: unsupported port: {}".format(port))
+                return False
+            else:
+                server.login(username, password)
+                server.sendmail(username, toaddrs, msg)
+                server.quit()
+            return True
+        except Exception as ex:
+            logging.exception(ex)
+            return False
+
+    if forget:
+        threading.Thread(target=send_email_thread, args=(data,)).start()
+        return None
+    else:
+        return send_email_thread(data)
+
+
 _ip_re_pattern = re.compile(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
 _ip_port_re_pattern = re.compile(r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\:(\d+)\/")
 

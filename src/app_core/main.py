@@ -6,7 +6,7 @@ from collections import deque
 from shapely import geometry
 
 # Change the path to folder ai_box
-sys.path.append('/home/quangthangggg/Documents/ai_box')
+sys.path.append(r'C:\Users\ducph\PycharmProjects\ai_box')
 
 from src.app_core.apps import VideoMonitorApp
 from src.app_core.controller_utils import *
@@ -23,8 +23,8 @@ import requests
 
 logger = dbg.get_logger("tt_zone")
 
-template_dir = os.path.abspath('src/app_core/templates')
-static_dir = os.path.abspath('src/app_core/static')
+template_dir = os.path.abspath('templates')
+static_dir = os.path.abspath('static')
 
 
 
@@ -186,10 +186,12 @@ points = []
 @app.route('/draw_zone', methods=['GET', 'POST'])
 def draw_zone():
     if request.method == 'GET':
+        window_width = 1280
+        window_height = 720
         global points
         global list_point
         list_point = {}
-        file_path = '/home/quangthangggg/Documents/ai_box/setup/sc/source/camera_zone.json'
+        file_path = 'setup/sc/source/camera_zone.json'
 
         try:
             with open(file_path, 'r') as file:
@@ -197,25 +199,18 @@ def draw_zone():
 
             for id_cam in data:
                 url = data[id_cam]['cam_url']
-                print(type(url))
+
                 cam = cv2.VideoCapture(url)
+
                 if not cam.isOpened():
-                    
-                    print("Error: Could not open camera")
                     return "Error: Could not open camera"
 
                 ret, frame = cam.read()
-                window_width = frame.shape[1]
-                window_height = frame.shape[0]
-                # print(window_width)
-                # print(window_height)
-
 
                 if not ret:
                     return "Error: Could not read frame from camera"
 
                 frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-
                 frame_resized = cv2.resize(frame, (window_width, window_height))
                 json_data = []
                 for zone_type in ['zone_fall', 'zone_fire', 'zone_stranger']:
@@ -298,9 +293,7 @@ def live():
 def gen():
     while True:
         frame = backend.frame_stream
-        
         if frame is not None:
-            # print(frame.shape)
             ret, encoded = cv2.imencode('.jpg', frame)
             frame_mjpeg = encoded.tobytes()
             yield (b'--frame\r\n'
@@ -419,41 +412,6 @@ def conf_camera():
             return return_json("Thành công", ret_code=0)
     except Exception as ex:
         return return_json("Lỗi. ", ex, ret_code=1)
-
-def send_email(key):
-    print("Attempting to send email...")  # Add a print statement to indicate the function is called
-    # Email configuration
-    smtp_server = "smtp.gmail.com"
-    port = 465
-    email = "aiboxmail0@gmail.com"
-
-    sender_email = email
-    receiver_email = "ducphongBKEU@gmail.com"
-
-    message_fall = """
-    Subject: Fall Email
-    """
-    message_fire = """
-    Subject: Fire Email
-    """
-    message_stranger = """
-    Subject: Stranger Email
-    """
-    # Connect to the SMTP server and send the email
-    try:
-        with smtplib.SMTP_SSL(smtp_server, port) as server:
-            # key application 3th
-            server.login(email, "agfb qgra wvrb xpwo")
-            if key == "fall":
-                server.sendmail(sender_email, receiver_email, message_fall)
-            elif key == "fire":
-                server.sendmail(sender_email, receiver_email, message_fire)
-            else:
-                server.sendmail(sender_email, receiver_email, message_stranger)
-
-        print("Email sent successfully!")  # Add a print statement to indicate successful email sending
-    except Exception as e:
-        print("Error sending email:", e)  # Add a print statement to print out the error message
 
 
 class Backend(VideoMonitorApp):
@@ -578,26 +536,19 @@ class Backend(VideoMonitorApp):
                     if d['is_fire'] == 1:
                         self.tracks.append(1)
                 else:
-                    # print(d)
-                    if len(d['bbox_human'])==4:
+                    if len(d['bbox_human']):
                         x1,x2,y1,y2 = d['bbox_human'][0], d['bbox_human'][1], d['bbox_human'][2], d['bbox_human'][3]
                         cv2.rectangle(show, (x1, y1), (x2, y2), (255,0,0), 2)
                         cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
-                        if len(d['bbox_face'])==4:
+                        if len(d['bbox_face']):
                             x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
                             cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
                             cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-                            if d['stranger'] == 1:
-                                cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                                cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-                            else:
-                                cv2.rectangle(show, (x1, y1), (x2, y2), (0, 0, 255), 2)
-                                cv2.putText(show, 'Unknown', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                                self.tracks.append(1)
                         else:
                             self.tracks.append(1)
                         if d['stranger'] == 0:
                             self.tracks.append(1)
+
         current_time = time.time()
         # Default passing to 60s
         if self.previous_time is None:
@@ -607,6 +558,41 @@ class Backend(VideoMonitorApp):
             self.send_event_not_in_zone(detections= detections ,key = function)
             self.tracks.clear()
         return show
+
+    def send_email(key):
+        print("Attempting to send email...")  # Add a print statement to indicate the function is called
+        # Email configuration
+        smtp_server = "smtp.gmail.com"
+        port = 465
+        email = "aiboxmail0@gmail.com"
+
+        sender_email = email
+        receiver_email = "ducphongBKEU@gmail.com"
+
+        message_fall = """
+        Subject: Fall Email
+        """
+        message_fire = """
+        Subject: Fire Email
+        """
+        message_stranger = """
+        Subject: Stranger Email
+        """
+        # Connect to the SMTP server and send the email
+        try:
+            with smtplib.SMTP_SSL(smtp_server, port) as server:
+                # key application 3th
+                server.login(email, "agfb qgra wvrb xpwo")
+                if key == "fall":
+                    server.sendmail(sender_email, receiver_email, message_fall)
+                elif key == "fire":
+                    server.sendmail(sender_email, receiver_email, message_fire)
+                else:
+                    server.sendmail(sender_email, receiver_email, message_stranger)
+
+            print("Email sent successfully!")  # Add a print statement to indicate successful email sending
+        except Exception as e:
+            print("Error sending email:", e)  # Add a print statement to print out the error message
 
     @property
     def zones(self):
