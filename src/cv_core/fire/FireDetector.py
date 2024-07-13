@@ -31,9 +31,10 @@ class FireDetector(object):
         conf = []
         for result in results:
             for box in result.boxes:
-                if ((box.conf > 0.2) and (int(box.cls) == 0)) or ((box.conf > 0.6) and (int(box.cls) == 2)): 
+                if ((box.conf > 0.25) and (int(box.cls) == 0)) or ((box.conf > 0.6) and (int(box.cls) == 2)): 
                     statuses.append(1)
                     conf.append(box.conf)
+            
 
                 else:
                     conf.append(0)
@@ -48,7 +49,8 @@ class FireDetector(object):
         boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
         obj_dets = []
         for status, cf, box in zip(statuses, conf, boxes):
-            obj_dets.append(FireDet(bb=box, confidence = cf, is_fire=status))
+            if cf != 0:
+                obj_dets.append(FireDet(bb=box, confidence = cf, is_fire=status))
         return FireDets(obj_dets)
 
 

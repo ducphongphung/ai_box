@@ -420,6 +420,27 @@ def conf_camera():
     except Exception as ex:
         return return_json("Lỗi. ", ex, ret_code=1)
 
+    
+import sqlite3 
+def get_all_emails():
+    try:
+        db_path = "/home/quangthangggg/Documents/ai_box/instance/db.sqlite"
+        # Kết nối tới cơ sở dữ liệu
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        
+        # Thực hiện truy vấn lấy tất cả email
+        cursor.execute("SELECT email FROM users")
+        emails = [row[0] for row in cursor.fetchall()]
+        
+        # Đóng kết nối
+        conn.close()
+        
+        return emails
+    except Exception as e:
+        print("Error accessing database:", e)
+        return []
+
 def send_email(key):
     print("Attempting to send email...")  # Add a print statement to indicate the function is called
     # Email configuration
@@ -428,7 +449,8 @@ def send_email(key):
     email = "aiboxmail0@gmail.com"
 
     sender_email = email
-    receiver_email = "ducphongBKEU@gmail.com"
+    receiver_email = get_all_emails()
+    print(receiver_email)
 
     message_fall = """
     Subject: Fall Email
@@ -513,7 +535,8 @@ class Backend(VideoMonitorApp):
         except Exception as ex:
             logger.exception(ex)
 
-    def send_event_not_in_zone(self,detections, key):
+    def send_event_not_in_zone(self, detections, key):
+        # sended_email = False
         for zone_id, zone in self.zones_cache.items():
             if zone_id == 0 and key == "fall":
                 zone_poly, zone_poly_expanded = expand_zone(zone["coords"])
@@ -529,6 +552,7 @@ class Backend(VideoMonitorApp):
                     # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
                     if not zone_has_motion:
                         self.send_passing_events(key)
+                        # sended_email = True
 
                     else:  # keep current switch status if detection unstable: <= 33% detection
                         logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
@@ -549,6 +573,7 @@ class Backend(VideoMonitorApp):
                     # for each zone, apply the rules to fire events to HC to turn on/off zone-switch
                     if not zone_has_motion:
                         self.send_passing_events(key)
+                        # sended_email = True
 
                     else:  # keep current switch status if detection unstable: <= 33% detection
                         logger.warn(f"zone: {zone}: skip sending email as detection is not stable")
@@ -556,6 +581,10 @@ class Backend(VideoMonitorApp):
                     self.hc_connected = False
             else:
                 self.send_passing_events(key)
+                # sended_email = True
+        if not self.zones_cache:
+            self.send_passing_events(key)
+            
 
     def process_frame(self, frame, t0, regs, freeze_state):
         show = frame.copy()
@@ -571,10 +600,11 @@ class Backend(VideoMonitorApp):
                                 color=(0, 0, 255) if d['is_fallen'] == 1 else None, simple=True)
                     if d['is_fallen'] == 1:
                         self.tracks.append(1)
+
                 elif function == 'fire':
                     try:
                         bb = d['bb']
-                        dr.draw_box(show, bb, line1="FIRE"  if d['is_fire'] == 1 else None,
+                        dr.draw_box(show, bb, line1="FIRE/SMOKE"  if d['is_fire'] == 1 else None,
                                     color=(0, 0, 255) if d['is_fire'] == 1 else None, simple=True)
                         if d['is_fire'] == 1:
                             self.tracks.append(1)
@@ -588,14 +618,13 @@ class Backend(VideoMonitorApp):
                         cv2.putText(show, 'person', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)
                         if len(d['bbox_face'])==4:
                             x1, x2, y1, y2 = d['bbox_face'][0], d['bbox_face'][1], d['bbox_face'][2], d['bbox_face'][3]
-
                             if d['stranger'] == 1:
                                 cv2.rectangle(show, (x1, y1), (x2, y2), (0, 255, 0), 2)
                                 cv2.putText(show, 'Known', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                             else:
                                 cv2.rectangle(show, (x1, y1), (x2, y2), (0, 0, 255), 2)
                                 cv2.putText(show, 'Unknown', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                                self.tracks.append(1)
+                                # self.tracks.append(1)
                         else:
                             self.tracks.append(1)
                         if d['stranger'] == 0:

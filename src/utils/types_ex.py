@@ -368,7 +368,7 @@ class FireDet(ObjDet):
         if isinstance(self.bb, np.ndarray):
             final['bb'] = self.bb.astype(int).tolist()
         else:
-            final['bb'] = [int(e) for e in self.bb]
+            final['bb'] = [int(e) for e in self.bb] 
         final['obj_class'] = self.obj_class
         final['is_fire'] = self.is_fire
         final['confidence'] = float(self.confidence)
@@ -401,30 +401,30 @@ class FamilyDet(ObjDet):
         return final
 
 
-
-class FamilyDets(ObjDets):
-    def __init__(self, familyDets):
-        super().__init__(familyDets)
-        self.family_dets = familyDets
-
-
-    def to_json(self):
-        final = {}
-        if isinstance(self.tag, dict):
-            final = self.tag
-        if isinstance(self.bb, np.ndarray):
-            final['bb'] = self.bb.astype(int).tolist()
-        else:
-            final['bb'] = [int(e) for e in self.bb]
-        final['obj_class'] = self.obj_class
-        final['is_fire'] = self.is_fire
-        final['confidence'] = float(self.confidence)
-        return final
-
 class FireDets(ObjDets):
     def __init__(self, fireDets):
         super().__init__(fireDets)
         self.fire_dets = fireDets
+
+
+# class FamilyDets(ObjDets):
+#     def __init__(self, familyDets):
+#         super().__init__(familyDets)
+#         self.family_dets = familyDets
+
+
+#     def to_json(self):
+#         final = {}
+#         if isinstance(self.tag, dict):
+#             final = self.tag
+#         if isinstance(self.bb, np.ndarray):
+#             final['bb'] = self.bb.astype(int).tolist()
+#         else:
+#             final['bb'] = [int(e) for e in self.bb]
+#         final['obj_class'] = self.obj_class
+#         final['is_fire'] = self.is_fire
+#         final['confidence'] = float(self.confidence)
+#         return final
 
 # FamilyDet Class : lưu output
 class FamilyDet(ObjDet):

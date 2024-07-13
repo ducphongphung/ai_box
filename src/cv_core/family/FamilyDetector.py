@@ -111,24 +111,14 @@ class FamilyDetector(object):
     def process_frame(self, results, frame):
         statuses = []
         conf = []
-        humans_bbox = {}
+        humans_bbox = []
         faces_bbox = []
 
         for result in results:
             for bbox in result.boxes:
                 if int(bbox.cls) == 0:  # Process only human bounding boxes
                     x1, y1, x2, y2 = map(int, bbox.xyxy[0])
-                    human_bbox = (x1, y1, x2, y2)  # Use (x1, y1, x2, y2) tuple for dictionary key
-
-                    # Skip if this human_bbox is already processed or overlaps significantly with an existing bbox
-                    skip = False
-                    for existing_bbox in humans_bbox:
-                        if calculate_iou(human_bbox, existing_bbox) > 0.9:
-                            skip = True
-                            break
-                    if skip:
-                        continue
-
+                    human_bbox = (x1, x2, y1, y2)  # Use (x1, y1, x2, y2) tuple for dictionary key
                     roi = frame[y1:y2, x1:x2]
 
                     # Detect faces using DNN
@@ -136,13 +126,13 @@ class FamilyDetector(object):
                     blob = cv2.dnn.blobFromImage(cv2.resize(roi, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
                     self.net.setInput(blob)
                     detections = self.net.forward()
-                    print(detections)
-
-                    face_detected = False  # Flag to check if face has been detected for current human_bbox
+                    if detections.shape[2] == 0:
+                        statuses.append(0)
+                        conf.append(0)
+                        faces_bbox.append([0,0,0,0])
+                        humans_bbox.append(human_bbox)
+                        continue
                     for i in range(detections.shape[2]):
-                        if face_detected:  # If a face has already been detected, break the loop
-                            break
-
                         confidence = detections[0, 0, i, 2]
                         if confidence > 0.5:
                             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
@@ -163,10 +153,6 @@ class FamilyDetector(object):
                                 best_match_idx = np.argmax(similarities)
                                 best_match_score = similarities[0, best_match_idx]
 
-                                # Ensure that each face gets only one label
-                                if face_bbox in faces_bbox:
-                                    continue  # Skip if this face_bbox is already processed
-
                                 if best_match_score > 0.3:
                                     statuses.append(1)
                                     conf.append(best_match_score)
@@ -175,15 +161,11 @@ class FamilyDetector(object):
                                     conf.append(best_match_score)
 
                                 faces_bbox.append(face_bbox)
-                                humans_bbox[human_bbox] = face_bbox  # Store human_bbox with corresponding face_bbox
-                                face_detected = True 
+                                humans_bbox.append(human_bbox)  # Store human_bbox with corresponding face_bbox
                                 time.sleep(0.5) # Mark that a face has been detected for this human_bbox
-                                break  # Only take the first detected face for each human_bbox
 
-        # Convert humans_bbox dictionary keys to list for returning
-        humans_bbox_list = list(humans_bbox.keys())
 
-        return conf, statuses, humans_bbox_list, faces_bbox
+        return conf, statuses, humans_bbox, faces_bbox
 
     def get_stranger(self, frame):
         results, frame = self.humandetect(frame)

@@ -30,7 +30,7 @@ class FallDetector(object):
         conf = []
         for result in results:
             for box in result.boxes:
-                if box.conf > 0.3 and box.cls == 0:  # Assuming class 0 is 'Fall'
+                if box.conf > 0.3 and box.cls == 0:  # Assuming class 1 is 'Fall'
                     statuses.append(1)
                     conf.append(box.conf)
                     # self.fall_count += 1  # Increment fall count
