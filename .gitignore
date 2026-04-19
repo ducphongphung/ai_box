@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+*.env
+.env
+
+# Toolings and IDEs
+.idea/
+.vscode/
+
+# Project specifics
+src/app_core/models/
+src/uploads/
+instance/
+log/
+shots/
+
+# uv lock
+# uv.lock
