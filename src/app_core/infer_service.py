@@ -6,8 +6,9 @@ import os
 from flask import Flask
 
 import sys
+import os
 # Change the path to folder ai_box
-sys.path.append(r'/root/ai_box')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 import src.utils.common as ut
 from src.app_core.controller_utils import get_params, return_json

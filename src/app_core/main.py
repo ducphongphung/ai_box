@@ -2,11 +2,12 @@ from flask import Flask, render_template, Response, request, redirect, url_for, 
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 import sys
+import os
 from collections import deque
 from shapely import geometry
 
 # Change the path to folder ai_box
-sys.path.append(r'C:\Users\ducph\PycharmProjects\ai_box')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from src.app_core.apps import VideoMonitorApp
 from src.app_core.controller_utils import *

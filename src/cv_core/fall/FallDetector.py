@@ -1,7 +1,7 @@
 import sys
-from get_output import ObjPred
 from ultralytics import YOLO
 import cv2
+import os
 from src.utils.types_ex import *
 import json
 output_width = 1200
@@ -14,8 +14,7 @@ class FallDetector(object):
 
 
     def _load_model(self):
-        # device = "cuda" if torch.cuda.is_available() else "cpu"
-        model_path = os.path.abspath('models/model8s_50.pt')
+        model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'model8s_50.pt'))
         model = YOLO( model_path)
         return model
 

@@ -14,8 +14,7 @@ class FireDetector(object):
 
 
     def _load_model(self):
-        # device = "cuda" if torch.cuda.is_available() else "cpu"
-        model_path = os.path.abspath('models/best.pt')
+        model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'best.pt'))
         model = YOLO( model_path)
         return model
 

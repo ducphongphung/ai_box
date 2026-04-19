@@ -206,7 +206,10 @@ def get_hdd_name():
     global _hdd_name
     if _hdd_name is None:
         try:
-            _hdd_name = os.popen("lsblk | grep disk | awk '{ printf $1 }'").read()
+            if os.name != 'nt':
+                _hdd_name = os.popen("lsblk | grep disk | awk '{ printf $1 }'").read()
+            else:
+                _hdd_name = ""
         except Exception as ex:  # hide the exception
             pass
     return _hdd_name

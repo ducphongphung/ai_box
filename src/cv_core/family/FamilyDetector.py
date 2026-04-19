@@ -31,18 +31,22 @@ def calculate_iou(box1, box2):
 
 class FamilyDetector(object):
     def __init__(self):
-        self.prototxt_path = os.path.abspath('models/deploy.prototxt.txt')
-        self.caffe_model_path = os.path.abspath('models/res10_300x300_ssd_iter_140000.caffemodel')
+        self.prototxt_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'deploy.prototxt.txt'))
+        self.caffe_model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'res10_300x300_ssd_iter_140000.caffemodel'))
         self.training_data_path = 'src/uploads'
-        self.tflite_model_path = os.path.abspath('models/model.tflite')
+        self.tflite_model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'model.tflite'))
         self.net = cv2.dnn.readNetFromCaffe(self.prototxt_path, self.caffe_model_path)
-        self.human_detector = YOLO(os.path.abspath('models/yolov8n.pt'))
-        self.stored_embeddings = np.load(os.path.abspath('models/face_embeddings.npz'))['embeddings']
+        self.human_detector = YOLO(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'yolov8n.pt')))
+        self.stored_embeddings = np.load(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'face_embeddings.npz')))['embeddings']
         # Tải mô hình TFLite
         self.interpreter = tf.lite.Interpreter(model_path=self.tflite_model_path)
-        self.interpreter.allocate_tensors()
-        self.input_details = self.interpreter.get_input_details()
-        self.output_details = self.interpreter.get_output_details()
+        try:
+            self.interpreter.allocate_tensors()
+            self.input_details = self.interpreter.get_input_details()
+            self.output_details = self.interpreter.get_output_details()
+        except RuntimeError as e:
+            print("WARNING: TFLite FlexDelegate is not supported natively on this Windows TensorFlow build. Stranger detection disabled.")
+            self.interpreter = None
 
     def preprocess_image(self, face_image):
         try:
@@ -55,6 +59,8 @@ class FamilyDetector(object):
             return None
 
     def get_face_embedding(self, face_image):
+        if self.interpreter is None:
+            return None
         # Tiền xử lý ảnh
         preprocessed_image = self.preprocess_image(face_image)
         
@@ -100,7 +106,7 @@ class FamilyDetector(object):
         faces_embeddings = np.array(faces_embeddings)
 
         # Lưu các vector nhúng
-        np.savez(os.path.abspath('models/face_embeddings.npz'), embeddings=faces_embeddings)
+        np.savez(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'app_core', 'models', 'face_embeddings.npz')), embeddings=faces_embeddings)
     
         print(f"Đã lưu vector nhúng từ dữ liệu huấn luyện.")
     
